@@ -804,7 +804,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   body.menu-open {
     overflow: hidden;
   }
@@ -1014,7 +1014,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 /* Desktop: hide mobile panels */
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
   .mobile-panels {
     display: none;
   }
