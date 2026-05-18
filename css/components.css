@@ -809,6 +809,12 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     overflow: hidden;
   }
 
+  /* Hide top navbar book button on mobile - keep slide panel CTA */
+  .navbar .container > .btn-book,
+  .navbar .container > a[href="book-appointment.html"].btn-book {
+    display: none !important;
+  }
+
   .navbar-nav {
     display: none;
     position: absolute;

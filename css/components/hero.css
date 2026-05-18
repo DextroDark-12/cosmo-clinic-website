@@ -1,0 +1,129 @@
+/* =============================================
+   HERO SECTIONS
+   All hero variations
+   ============================================= */
+
+.hero {
+  min-height: 100vh;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(201, 169, 110, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(201, 169, 110, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 900px;
+  padding: 3rem 2rem;
+  position: relative;
+  z-index: 1;
+  margin-inline: auto;
+}
+
+.hero .gold-line {
+  width: 60px;
+  height: 2px;
+  background: var(--color-gold);
+  margin: 0 auto 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.hero-compact {
+  min-height: 50vh;
+}
+
+.hero-home {
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, var(--color-bg) 70%);
+  pointer-events: none;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* Desktop hero CTA - single row, balanced spacing */
+@media (min-width: 769px) {
+  .hero-cta {
+    flex-wrap: nowrap;
+    width: fit-content;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+/* Mobile hero CTA */
+@media (max-width: 600px) {
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Page header (alternative hero style) */
+.page-header {
+  background: var(--color-bg);
+  padding: 8rem 0 4rem;
+  text-align: center;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+}
+
+.page-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.page-header p {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
