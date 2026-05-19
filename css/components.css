@@ -25,6 +25,8 @@
   display: flex;
   flex-direction: column;
   line-height: 1.2;
+  flex-shrink: 0;
+  margin-right: 3rem;
 }
 
 .navbar-logo .logo-text {
@@ -44,7 +46,7 @@
 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
 .navbar-nav a {
@@ -131,7 +133,8 @@
 }
 
 .btn-book {
-  padding: 0.6rem 1.5rem;
+  margin-left: 1rem;
+  padding: 0.5rem 1.25rem;
   font-size: 0.85rem;
 }
 
@@ -342,10 +345,59 @@
   color: var(--color-gold);
 }
 
+/* About dropdown - simplified 2-item version */
+.about-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 100;
+  min-width: 180px;
+  padding: 1rem;
+}
+
+.about-dropdown .dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-dropdown .dropdown-menu ul li {
+  margin-bottom: 0.5rem;
+}
+
+.about-dropdown .dropdown-menu ul li:last-child {
+  margin-bottom: 0;
+}
+
+.about-dropdown .dropdown-menu ul li a {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.25rem 0;
+}
+
+.about-dropdown .dropdown-menu ul li a:hover {
+  color: var(--color-gold);
+}
+
+.about-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* Hover bridge for dropdowns */
 .treatments-dropdown::after,
 .conditions-dropdown::after,
-.gallery-dropdown::after {
+.gallery-dropdown::after,
+.about-dropdown::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -468,6 +520,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  padding-top: 80px;
 }
 
 .hero::before {
@@ -481,10 +534,6 @@
     radial-gradient(circle at 20% 80%, rgba(201, 169, 110, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(201, 169, 110, 0.03) 0%, transparent 50%);
   pointer-events: none;
-}
-  position: relative;
-  overflow: hidden;
-  padding-top: 80px;
 }
 
 .hero::before {
