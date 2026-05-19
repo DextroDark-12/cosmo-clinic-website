@@ -2195,3 +2195,189 @@ img[loading="lazy"].loaded {
     max-width: 280px;
   }
 }
+
+/* ============================================
+   MOBILE NAVIGATION ISOLATION LAYER
+   ============================================ */
+
+/* Mobile Menu System - Hidden by Default */
+.mobile-menu-overlay,
+.mobile-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Active State - Visible */
+.mobile-menu-overlay.active,
+.mobile-menu.active {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Mobile Menu Container */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(85vw, 360px);
+  height: 100vh;
+  background: var(--color-bg);
+  z-index: 1001;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+/* Mobile Menu Content */
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-menu-logo {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-gold);
+}
+
+.mobile-menu-close {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+/* Mobile Menu Navigation */
+.mobile-menu-nav {
+  padding: 1rem 0;
+}
+
+/* Mobile Nav List */
+.mobile-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1.5rem;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-list li a:hover {
+  color: var(--color-gold);
+}
+
+.mobile-nav-list li a .arrow {
+  color: var(--color-gold);
+  font-size: 1.25rem;
+}
+
+/* Mobile Menu Panel - Hidden by Default */
+.mobile-menu-panel {
+  display: none;
+}
+
+/* Active Panel Visible */
+.mobile-menu-panel.active {
+  display: block;
+}
+
+/* Panel Header (Submenu Panels Only) */
+.panel-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.panel-back {
+  background: none;
+  border: none;
+  color: var(--color-gold);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem 0.25rem 0;
+  line-height: 1;
+}
+
+.panel-title {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--color-white);
+  padding-left: 0.5rem;
+}
+
+/* Mobile Menu CTA */
+.mobile-menu-cta {
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.mobile-menu-cta .btn {
+  width: 100%;
+}
+
+/* ============================================
+   MOBILE NAVIGATION BREAKPOINT (TABLET/MOBILE)
+   ============================================ */
+@media (max-width: 1199px) {
+  /* Show hamburger */
+  .mobile-toggle {
+    display: flex;
+    z-index: 1002;
+  }
+
+  /* Hide desktop navbar nav */
+  .navbar-nav {
+    display: none;
+  }
+
+  /* Hide desktop Book CTA */
+  .navbar .container > .btn-book,
+  .navbar .container > a[href="book-appointment.html"].btn-book {
+    display: none !important;
+  }
+
+  /* Hide desktop dropdowns/mega-menus on mobile */
+  .navbar-nav .dropdown,
+  .navbar-nav .mega-menu,
+  .navbar-nav .dropdown-menu {
+    display: none;
+  }
+}
+
+/* Desktop: Ensure mobile system doesn't interfere */
+@media (min-width: 1200px) {
+  .mobile-menu,
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+}
