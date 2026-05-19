@@ -29,6 +29,15 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/animations.css">
 
+    <style>
+        /* Phase 5B - Treatments page decorative line removal experiment */
+        /* Hero gold line - remove */
+        .hero .gold-line { display: none; }
+        /* Section title underline - remove */
+        body.page-treatments .section-title::after { display: none; }
+        body.page-treatments .section-title { margin-bottom: 2rem; }
+    </style>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,7 +47,7 @@
     }
     </script>
 </head>
-<body>
+<body class="page-treatments">
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="navbar-logo"><span class="logo-text">✦ COSMO</span><span class="logo-sub">Skin Clinic</span></a>
@@ -54,7 +63,17 @@
                 </div>
                 <a href="treatments.html" class="active">Treatments</a>
                 <a href="conditions.html">Conditions</a>
-                <a href="gallery.html">Gallery</a>
+                <div class="dropdown gallery-dropdown">
+                    <a href="gallery.html">Gallery</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="gallery.html">Clinic Gallery</a></li>
+                            <li><a href="gallery.html">Before & After</a></li>
+                            <li><a href="testimonials.html">Video Testimonials</a></li>
+                            <li><a href="testimonials.html">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <a href="blog.html">Blog</a>
                 <a href="faq.html">FAQ</a>
                 <a href="contact.html">Contact</a>
