@@ -26,7 +26,7 @@
   flex-direction: column;
   line-height: 1.2;
   flex-shrink: 0;
-  margin-right: 3rem;
+  margin-right: 10rem;
 }
 
 .navbar-logo .logo-text {
@@ -133,7 +133,7 @@
 }
 
 .btn-book {
-  margin-left: 1rem;
+  margin-left: 6rem;
   padding: 0.5rem 1.25rem;
   font-size: 0.85rem;
 }
