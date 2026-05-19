@@ -2207,6 +2207,7 @@ img[loading="lazy"].loaded {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
 }
 
 /* Active State - Visible */
@@ -2216,6 +2217,12 @@ img[loading="lazy"].loaded {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+/* Menu Container - Subtle Rise Motion */
+.mobile-menu.active {
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, visibility 0.28s ease, transform 0.28s ease;
 }
 
 /* Mobile Menu Container */
@@ -2229,6 +2236,8 @@ img[loading="lazy"].loaded {
   z-index: 1001;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+  border-radius: 4px 0 0 4px;
 }
 
 /* Mobile Menu Overlay */
@@ -2238,8 +2247,8 @@ img[loading="lazy"].loaded {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
   z-index: 1000;
 }
 
@@ -2298,16 +2307,28 @@ img[loading="lazy"].loaded {
 .mobile-nav-list li a .arrow {
   color: var(--color-gold);
   font-size: 1.25rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-list li a:hover .arrow {
+  transform: translateX(3px);
 }
 
 /* Mobile Menu Panel - Hidden by Default */
 .mobile-menu-panel {
   display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.26s ease, visibility 0.26s ease, transform 0.26s ease;
 }
 
 /* Active Panel Visible */
 .mobile-menu-panel.active {
   display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* Panel Header (Submenu Panels Only) */
