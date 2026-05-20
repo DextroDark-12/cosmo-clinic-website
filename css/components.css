@@ -177,14 +177,28 @@
   position: relative;
 }
 
-/* Hover bridge to prevent gap flicker */
-.dropdown::after {
+/* Hover bridge - compact for simple dropdowns */
+.about-dropdown::after {
   content: '';
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   height: 20px;
+  background: transparent;
+  z-index: -1;
+}
+
+/* Hover bridge - extended for large multi-column dropdowns */
+.treatments-dropdown::after,
+.conditions-dropdown::after,
+.gallery-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 40px;
   background: transparent;
   z-index: -1;
 }
@@ -216,29 +230,29 @@
   color: var(--color-gold);
 }
 
-/* Desktop dropdown menus */
+/* Desktop dropdown menus - final position, opacity-only transition */
 .treatments-dropdown .dropdown-menu,
 .conditions-dropdown .dropdown-menu,
 .gallery-dropdown .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  transform: translateX(-50%) translateY(0);
   background: var(--color-bg-secondary);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.25s ease;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
   z-index: 100;
 }
 
+/* Desktop hover reveal - opacity only, no movement */
 .treatments-dropdown:hover .dropdown-menu,
 .conditions-dropdown:hover .dropdown-menu,
 .gallery-dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
 }
 
 /* Treatments dropdown - 2 columns */
@@ -350,13 +364,13 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  transform: translateX(-50%) translateY(0);
   background: var(--color-bg-secondary);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.25s ease;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
   z-index: 100;
   min-width: 180px;
   padding: 1rem;
@@ -390,22 +404,6 @@
 .about-dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* Hover bridge for dropdowns */
-.treatments-dropdown::after,
-.conditions-dropdown::after,
-.gallery-dropdown::after,
-.about-dropdown::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 15px;
-  background: transparent;
-  z-index: -1;
 }
 
 .card {
