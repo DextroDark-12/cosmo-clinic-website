@@ -2404,6 +2404,330 @@ img[loading="lazy"].loaded {
 }
 
 /* ============================================
+   TREATMENT PAGE UTILITY CLASSES
+   Treatment overview grid, procedure steps, meta badges
+   ============================================ */
+
+.treatment-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .treatment-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.treatment-image-placeholder {
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-card));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--color-text-muted);
+}
+
+.treatment-image-placeholder .placeholder-icon {
+  font-size: 2rem;
+  color: var(--color-gold);
+}
+
+.treatment-image-placeholder span {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.treatment-details h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-white);
+}
+
+.treatment-details p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.treatment-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.meta-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  width: 32px;
+  text-align: center;
+}
+
+.meta-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-item strong {
+  font-size: 0.85rem;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.meta-item span {
+  color: var(--color-gold);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  .treatment-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Procedure Steps */
+.procedure-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+  .procedure-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.procedure-step {
+  padding: 2rem;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-gold);
+  transition: var(--transition);
+}
+
+.procedure-step:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-4px);
+}
+
+.step-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.step-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-white);
+}
+
+.step-content p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.procedure-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-gold);
+}
+
+.procedure-info p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.procedure-info strong {
+  color: var(--color-white);
+}
+
+/* Doctor Note Card */
+.doctor-note {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.doctor-note-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.doctor-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-bg);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.doctor-note-header h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-white);
+}
+
+.doctor-note-header p {
+  margin: 0;
+}
+
+.doctor-note blockquote {
+  padding: 1.5rem;
+  border-left: 3px solid var(--color-gold);
+  background: rgba(201, 169, 110, 0.05);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-bottom: 2rem;
+}
+
+.doctor-note blockquote p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.doctor-note .btn {
+  display: inline-flex;
+}
+
+/* FAQ List Styles */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.faq-question:hover {
+  color: var(--color-gold);
+}
+
+.faq-question span:first-child {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  transition: var(--transition);
+  flex-shrink: 0;
+  font-weight: 300;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+.faq-answer p {
+  padding: 0 0 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a {
+  color: var(--color-text-muted);
+  transition: var(--transition);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-gold);
+}
+
+.breadcrumb span:last-child {
+  color: var(--color-gold);
+}
+
+/* Benefit Card Enhancement */
+.benefit-card {
+  text-align: left;
+}
+
+/* ============================================
    MOBILE NAVIGATION BREAKPOINT (TABLET/MOBILE)
    ============================================ */
 @media (max-width: 1199px) {
@@ -2437,5 +2761,53 @@ img[loading="lazy"].loaded {
   .mobile-menu,
   .mobile-menu-overlay {
     display: none !important;
+  }
+}
+
+/* Mobile Responsive Adjustments for Treatment Pages */
+@media (max-width: 768px) {
+  .treatment-details h2 {
+    font-size: 2rem;
+  }
+  
+  .procedure-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .faq-question {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .doctor-note-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 280px;
   }
 }
