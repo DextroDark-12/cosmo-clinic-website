@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- =============================================
+         CONDITION PAGE META - REPLACE PER CONDITION
+         ============================================= -->
+    <!-- PAGE_TITLE -->
+    <title><!-- CONDITION_NAME --> | Cosmo Skin Clinic</title>
+    <!-- PAGE_DESCRIPTION -->
+    <meta name="description" content="<!-- CONDITION_META_DESCRIPTION -->">
+    <meta name="keywords" content="<!-- CONDITION_KEYWORDS -->">
+    <link rel="canonical" href="https://cosmoskinclinic.com/conditions/<!-- CONDITION_SLUG -->.html">
+    <!-- ============================================= -->
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cosmoskinclinic.com/conditions/<!-- CONDITION_SLUG -->.html">
+    <meta property="og:title" content="<!-- CONDITION_NAME --> | Cosmo Skin Clinic">
+    <meta property="og:description" content="<!-- CONDITION_META_DESCRIPTION -->">
+    <meta property="og:image" content="https://cosmoskinclinic.com/assets/images/og-condition.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<!-- CONDITION_NAME --> | Cosmo Skin Clinic">
+    <meta name="twitter:description" content="<!-- CONDITION_META_DESCRIPTION -->">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <!-- =============================================
+         NAVIGATION - Standard global navbar
+         Active state: Conditions dropdown should be open
+         ============================================= -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-logo">
+                <span class="logo-text">✦ COSMO</span>
+                <span class="logo-sub">Skin Clinic</span>
+            </a>
+            <div class="navbar-nav">
+                <a href="../index.html">Home</a>
+                <div class="dropdown about-dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../about/doctor.html">Our Doctor</a></li>
+                            <li><a href="../about/clinic.html">Our Clinic</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown treatments-dropdown">
+                    <a href="../treatments/index.html">Treatments</a>
+                    <div class="dropdown-menu">
+                        <div>
+                            <div class="col-title">Skin Treatments</div>
+                            <ul>
+                                <li><a href="../treatments/anti-aging.html">Anti Aging</a></li>
+                                <li><a href="../treatments/hydrafacial.html">Hydrafacial</a></li>
+                                <li><a href="../treatments/laser-treatment.html">Laser Treatments</a></li>
+                                <li><a href="../treatments/botox.html">Botox</a></li>
+                                <li><a href="../treatments/chemical-peel.html">Chemical Peels</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="col-title">Body & Hair</div>
+                            <ul>
+                                <li><a href="../treatments/laser-hair-removal.html">Laser Hair Removal</a></li>
+                                <li><a href="../treatments/body-contouring.html">Body Contouring</a></li>
+                                <li><a href="../treatments/hair-restoration.html">Hair Restoration</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown conditions-dropdown">
+                    <a href="index.html" class="active">Conditions</a>
+                    <div class="dropdown-menu">
+                        <div>
+                            <div class="col-title">Skin Concerns</div>
+                            <ul>
+                                <li><a href="#"><!-- CONDITION_NAME --></a></li>
+                                <li><a href="acne.html">Acne & Scars</a></li>
+                                <li><a href="pigmentation.html">Pigmentation</a></li>
+                                <li><a href="aging-skin.html">Aging Skin</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="col-title">Body & Hair</div>
+                            <ul>
+                                <li><a href="hair-loss.html">Hair Loss</a></li>
+                                <li><a href="stretch-marks.html">Stretch Marks</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown gallery-dropdown">
+                    <a href="../gallery/index.html">Gallery</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../gallery/before-after.html">Before & After</a></li>
+                            <li><a href="../gallery/transformations.html">Transformations</a></li>
+                            <li><a href="../gallery/reviews.html">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../faq.html">FAQ</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+            <a href="../book-appointment.html" class="btn btn-primary btn-book">Book Appointment</a>
+            <button class="mobile-toggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu" role="dialog" aria-hidden="true">
+        <!-- Standard mobile menu structure -->
+    </div>
+
+    <main>
+        <!-- =============================================
+             SECTION 1: HERO - EMPATHY + SOLUTION
+             Replace: Condition name, reassurance message, CTA
+             ============================================= -->
+        <section class="hero hero-compact">
+            <div class="hero-content">
+                <!-- BREADCRUMB: Home > Conditions > <!-- CONDITION_NAME -->
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>›</span>
+                    <a href="index.html">Conditions</a>
+                    <span>›</span>
+                    <span><!-- CONDITION_NAME --></span>
+                </nav>
+                <div class="gold-line"></div>
+                <!-- EMPATHY_HEADING: Reassurance-oriented -->
+                <h1><!-- CONDITION_HERO_HEADING --></h1>
+                <!-- EMPATHY_MESSAGE: "You don't have to live with..." -->
+                <p><!-- CONDITION_HERO_MESSAGE --></p>
+                <div class="hero-cta">
+                    <a href="#treatment-options" class="btn btn-primary">Explore Solutions</a>
+                    <a href="../book-appointment.html" class="btn btn-outline">Book Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 2: UNDERSTANDING THE CONDITION
+             Replace: Educational explanation, who it affects
+             ============================================= -->
+        <section id="understanding" class="section-padding">
+            <div class="container">
+                <div class="grid-2" style="gap: 4rem; align-items: center;">
+                    <div class="animate-on-scroll">
+                        <h2>Understanding <!-- CONDITION_NAME --></h2>
+                        <!-- CONDITION_OVERVIEW: Full educational explanation -->
+                        <p class="text-muted"><!-- CONDITION_OVERVIEW --></p>
+                        <!-- WHO_AFFECTED: Who commonly experiences this condition -->
+                        <p class="text-muted"><!-- WHO_AFFECTED --></p>
+                    </div>
+                    <div class="animate-on-scroll delay-1">
+                        <!-- CONDITION_IMAGE_PLACEHOLDER -->
+                        <div class="condition-image-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 3: SIGNS & CAUSES
+             Replace: Symptoms list, triggering factors
+             ============================================= -->
+        <section class="section-padding section-alt">
+            <div class="container">
+                <div class="grid-2" style="gap: 4rem;">
+                    <!-- SIGNS -->
+                    <div class="card animate-on-scroll">
+                        <h3>Signs & Symptoms</h3>
+                        <ul class="symptoms-list">
+                            <!-- SYMPTOM_1 -->
+                            <li>✦ <!-- SYMPTOM_1 --></li>
+                            <!-- SYMPTOM_2 -->
+                            <li>✦ <!-- SYMPTOM_2 --></li>
+                            <!-- SYMPTOM_3 -->
+                            <li>✦ <!-- SYMPTOM_3 --></li>
+                            <!-- SYMPTOM_4 -->
+                            <li>✦ <!-- SYMPTOM_4 --></li>
+                            <!-- SYMPTOM_5 -->
+                            <li>✦ <!-- SYMPTOM_5 --></li>
+                        </ul>
+                    </div>
+                    <!-- CAUSES -->
+                    <div class="card animate-on-scroll delay-1">
+                        <h3>Common Causes</h3>
+                        <ul class="causes-list">
+                            <!-- CAUSE_1 -->
+                            <li>✦ <!-- CAUSE_1 --></li>
+                            <!-- CAUSE_2 -->
+                            <li>✦ <!-- CAUSE_2 --></li>
+                            <!-- CAUSE_3 -->
+                            <li>✦ <!-- CAUSE_3 --></li>
+                            <!-- CAUSE_4 -->
+                            <li>✦ <!-- CAUSE_4 --></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 4: WHY TREATMENT MATTERS
+             Replace: Urgency messaging, consequences if untreated
+             ============================================= -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="urgency-block animate-on-scroll">
+                    <h2>Why Addressing <!-- CONDITION_NAME --> Matters</h2>
+                    <!-- CONSEQUENCES: What happens if left untreated -->
+                    <p class="text-muted"><!-- CONSEQUENCES_IF_UNTREATED --></p>
+                    <!-- QUALITY_LIFE: Impact on daily life -->
+                    <p class="text-muted"><!-- QUALITY_OF_LIFE_IMPACT --></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 5: RECOMMENDED TREATMENTS
+             Replace: Linked treatment cards (2-4 treatments)
+             ============================================= -->
+        <section id="treatment-options" class="section-padding section-alt">
+            <div class="container">
+                <h2 class="section-title">Recommended Treatments</h2>
+                <p class="text-center text-muted" style="max-width: 700px; margin: 0 auto 3rem;">
+                    Effective solutions for <!-- CONDITION_NAME --> tailored to your specific needs.
+                </p>
+                <div class="grid-2">
+                    <!-- TREATMENT_RECOMMENDATION_1 -->
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">✦</div>
+                        <h3><!-- RECOMMENDED_TREATMENT_1_NAME --></h3>
+                        <p class="text-muted"><!-- RECOMMENDED_TREATMENT_1_DESCRIPTION --></p>
+                        <div class="treatment-link">
+                            <a href="../treatments/<!-- TREATMENT_1_SLUG -->.html" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    <!-- TREATMENT_RECOMMENDATION_2 -->
+                    <div class="service-card animate-on-scroll delay-1">
+                        <div class="service-icon">✦</div>
+                        <h3><!-- RECOMMENDED_TREATMENT_2_NAME --></h3>
+                        <p class="text-muted"><!-- RECOMMENDED_TREATMENT_2_DESCRIPTION --></p>
+                        <div class="treatment-link">
+                            <a href="../treatments/<!-- TREATMENT_2_SLUG -->.html" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    <!-- TREATMENT_RECOMMENDATION_3 (optional) -->
+                    <div class="service-card animate-on-scroll delay-2">
+                        <div class="service-icon">✦</div>
+                        <h3><!-- RECOMMENDED_TREATMENT_3_NAME --></h3>
+                        <p class="text-muted"><!-- RECOMMENDED_TREATMENT_3_DESCRIPTION --></p>
+                        <div class="treatment-link">
+                            <a href="../treatments/<!-- TREATMENT_3_SLUG -->.html" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    <!-- TREATMENT_RECOMMENDATION_4 (optional) -->
+                    <div class="service-card animate-on-scroll delay-3">
+                        <div class="service-icon">✦</div>
+                        <h3><!-- RECOMMENDED_TREATMENT_4_NAME --></h3>
+                        <p class="text-muted"><!-- RECOMMENDED_TREATMENT_4_DESCRIPTION --></p>
+                        <div class="treatment-link">
+                            <a href="../treatments/<!-- TREATMENT_4_SLUG -->.html" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 6: BEFORE & AFTER PROOF
+             Replace: Visual proof that treatment works
+             ============================================= -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Real Results for <!-- CONDITION_NAME --></h2>
+                <!-- BEFORE_AFTER_COMPARISON -->
+                <div class="comparison-slider">
+                    <img src="<!-- BEFORE_IMAGE_URL -->" alt="Before" class="comparison-image comparison-after">
+                    <img src="<!-- AFTER_IMAGE_URL -->" alt="After" class="comparison-image comparison-before">
+                    <span class="comparison-label comparison-label-before">Before</span>
+                    <span class="comparison-label comparison-label-after">After</span>
+                    <div class="comparison-handle"></div>
+                </div>
+                <p class="text-center text-muted" style="margin-top: 1.5rem;">
+                    Results vary by individual. Treatment plan customized for each patient.
+                </p>
+                <div class="text-center" style="margin-top: 2rem;">
+                    <a href="../gallery/before-after.html" class="btn btn-outline">View More Transformations</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 7: FAQ ACCORDION
+             Replace: Condition-specific questions
+             ============================================= -->
+        <section class="section-padding section-alt">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <!-- FAQ_ITEM_1 -->
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question">
+                            <span><!-- FAQ_QUESTION_1 --></span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p><!-- FAQ_ANSWER_1 --></p>
+                        </div>
+                    </div>
+                    <!-- FAQ_ITEM_2 -->
+                    <div class="faq-item animate-on-scroll delay-1">
+                        <button class="faq-question">
+                            <span><!-- FAQ_QUESTION_2 --></span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p><!-- FAQ_ANSWER_2 --></p>
+                        </div>
+                    </div>
+                    <!-- FAQ_ITEM_3 -->
+                    <div class="faq-item animate-on-scroll delay-2">
+                        <button class="faq-question">
+                            <span><!-- FAQ_QUESTION_3 --></span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p><!-- FAQ_ANSWER_3 --></p>
+                        </div>
+                    </div>
+                    <!-- FAQ_ITEM_4 -->
+                    <div class="faq-item animate-on-scroll delay-3">
+                        <button class="faq-question">
+                            <span><!-- FAQ_QUESTION_4 --></span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p><!-- FAQ_ANSWER_4 --></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 8: FINAL CTA
+             ============================================= -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Take the First Step</h2>
+                    <p>Don't let <!-- CONDITION_NAME --> affect your confidence. Schedule a consultation to explore your treatment options.</p>
+                    <div class="cta-buttons">
+                        <a href="../book-appointment.html" class="btn btn-primary btn-large">Book Your Consultation</a>
+                        <a href="index.html" class="btn btn-outline">Explore All Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =============================================
+         FOOTER - Standard global footer
+         ============================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-text">✦ COSMO</span>
+                        <span class="logo-sub">Skin Clinic</span>
+                    </div>
+                    <p>Premium dermatology care for radiant, healthy skin.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Treatments</h4>
+                    <ul>
+                        <li><a href="../treatments/anti-aging.html">Anti Aging</a></li>
+                        <li><a href="../treatments/hydrafacial.html">Hydrafacial</a></li>
+                        <li><a href="../treatments/botox.html">Botox</a></li>
+                        <li><a href="../treatments/index.html">View All</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Conditions</h4>
+                    <ul>
+                        <li><a href="acne.html">Acne</a></li>
+                        <li><a href="pigmentation.html">Pigmentation</a></li>
+                        <li><a href="aging-skin.html">Aging Skin</a></li>
+                        <li><a href="index.html">View All</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="../contact.html">Get in Touch</a></li>
+                        <li><a href="../book-appointment.html">Book Appointment</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cosmo Skin Clinic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Bar -->
+    <div class="floating-action-bar">
+        <button class="fab-btn whatsapp">💬<span class="tooltip">WhatsApp</span></button>
+        <button class="fab-btn call">📞</button>
+        <button class="fab-btn appointment">📅</button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/faq.js"></script>
+</body>
+</html>
