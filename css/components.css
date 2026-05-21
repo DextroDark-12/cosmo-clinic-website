@@ -4,15 +4,22 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(13, 13, 26, 0.8);
-  backdrop-filter: blur(10px);
-  transition: var(--transition);
+  background: rgba(13, 13, 26, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              padding 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   padding: 1rem 0;
+  border-bottom: 1px solid transparent;
 }
 
 .navbar.scrolled {
-  background: rgba(13, 13, 26, 0.98);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(13, 13, 26, 0.97);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .navbar .container {
@@ -34,6 +41,11 @@
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--color-gold);
+  transition: font-size 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar.scrolled .logo-text {
+  font-size: 1.35rem;
 }
 
 .navbar-logo .logo-sub {
@@ -41,6 +53,11 @@
   color: var(--color-white);
   text-transform: uppercase;
   letter-spacing: 2px;
+  transition: font-size 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar.scrolled .logo-sub {
+  font-size: 0.6rem;
 }
 
 .navbar-nav {
@@ -705,68 +722,6 @@
 /* Phase 5B - Removed decorative section title underline (global cleanup) */
 /* .section-title::after { display: none; } */
 
-.floating-action-bar {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  z-index: 999;
-}
-
-.fab-btn {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  cursor: pointer;
-  transition: var(--transition);
-  position: relative;
-  border: none;
-}
-
-.fab-btn.whatsapp {
-  background: #25D366;
-  color: white;
-}
-
-.fab-btn.call {
-  background: var(--color-gold);
-  color: var(--color-bg);
-}
-
-.fab-btn.appointment {
-  background: var(--color-bg-card);
-  color: var(--color-gold);
-  border: 2px solid var(--color-gold);
-}
-
-.fab-btn:hover {
-  transform: scale(1.1);
-}
-
-.fab-btn .tooltip {
-  position: absolute;
-  right: 60px;
-  background: var(--color-bg-secondary);
-  color: var(--color-white);
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.85rem;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition);
-}
-
-.fab-btn:hover .tooltip {
-  opacity: 1;
-  visibility: visible;
-}
 
 /* Global WhatsApp floating button */
 .whatsapp-float {
@@ -775,26 +730,28 @@
   right: 2rem;
   width: 56px;
   height: 56px;
-  background: #25D366;
+  background: var(--color-bg-secondary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(201, 169, 110, 0.12);
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   z-index: 998;
   cursor: pointer;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+  background: var(--color-bg-card);
+  box-shadow: 0 6px 28px rgba(201, 169, 110, 0.25);
 }
 
 .whatsapp-float svg {
   width: 28px;
   height: 28px;
-  fill: white;
+  fill: var(--color-gold);
 }
 
 .whatsapp-float::after {
@@ -1158,9 +1115,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     font-size: 1.25rem;
   }
 
-  .fab-btn .tooltip {
-    display: none;
-  }
 
   .footer-grid {
     grid-template-columns: 1fr;
