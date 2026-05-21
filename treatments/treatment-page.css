@@ -46,8 +46,8 @@
 
 .overview-layout {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 5rem;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 4rem;
   align-items: start;
 }
 
@@ -98,6 +98,120 @@
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   EQUAL 4-IMAGE GRID — Premium 2x2 composition
+   ───────────────────────────────────────────── */
+
+.treatment-collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.collage-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+  transition: transform 0.4s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collage-img:hover {
+  transform: scale(1.015);
+  filter: brightness(1.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.collage-placeholder {
+  background: linear-gradient(145deg, var(--color-bg-secondary), var(--color-bg-card));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  height: 260px;
+}
+
+.collage-placeholder .placeholder-accent {
+  font-size: 1.8rem;
+  color: var(--color-gold);
+  opacity: 0.45;
+}
+
+.collage-placeholder span {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE — TABLET
+   ───────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .treatment-collage {
+    gap: 14px;
+    border-radius: 16px;
+  }
+  
+  .collage-img {
+    height: 220px;
+  }
+  
+  .collage-placeholder {
+    height: 220px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE — MOBILE (2-column)
+   ───────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .treatment-collage {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    border-radius: 14px;
+  }
+  
+  .collage-img {
+    height: 160px;
+    border-radius: 12px;
+  }
+  
+  .collage-placeholder {
+    height: 160px;
+    border-radius: 12px;
+  }
+  
+  .collage-img:hover {
+    transform: scale(1.01);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE — SMALL MOBILE
+   ───────────────────────────────────────────── */
+
+@media (max-width: 400px) {
+  .collage-img {
+    height: 140px;
+    border-radius: 10px;
+  }
+  
+  .collage-placeholder {
+    height: 140px;
+    border-radius: 10px;
+  }
 }
 
 .overview-content h2 {
@@ -241,7 +355,7 @@
 .procedure-flow {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 10px;
   max-width: 720px;
   margin: 0 auto 2.5rem;
 }
@@ -288,9 +402,14 @@
 .step-line {
   width: 1px;
   flex: 1;
-  min-height: 2rem;
+  min-height: 1.5rem;
+  max-height: 3rem;
   background: linear-gradient(to bottom, var(--color-border), transparent);
   margin-top: 0.5rem;
+}
+
+.procedure-step:last-child .step-line {
+  display: none;
 }
 
 @media (max-width: 600px) {

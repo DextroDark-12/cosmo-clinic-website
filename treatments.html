@@ -31,11 +31,53 @@
 
     <style>
         /* Phase 5B - Treatments page decorative line removal experiment */
-        /* Hero gold line - remove */
         .hero .gold-line { display: none; }
-        /* Section title underline - remove */
         body.page-treatments .section-title::after { display: none; }
-        body.page-treatments .section-title { margin-bottom: 2rem; }
+
+        /* Phase 5C - Vertical spacing rhythm refinement */
+        body.page-treatments .section-padding {
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+
+        body.page-treatments .section-title {
+            margin-bottom: 1.75rem;
+        }
+
+        body.page-treatments .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 1rem;
+        }
+
+        @media (max-width: 1100px) {
+            body.page-treatments .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Phase 7B - Background continuity */
+        body.page-treatments {
+            position: relative;
+        }
+
+        body.page-treatments::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 50% 25%, rgba(201, 169, 110, 0.025) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 75%, rgba(201, 169, 110, 0.015) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body.page-treatments main {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 
     <script type="application/ld+json">
@@ -66,23 +108,30 @@
                     <a href="treatments.html" class="active">Treatments</a>
                     <div class="dropdown-menu">
                         <div>
-                            <div class="col-title">Skin Treatments</div>
+                            <a href="treatments.html#skin-treatments" class="col-title">Skin Treatments</a>
                             <ul>
-                                <li><a href="treatments.html">Laser Treatments</a></li>
-                                <li><a href="treatments.html">Anti Aging</a></li>
-                                <li><a href="treatments.html">Acne Solutions</a></li>
-                                <li><a href="treatments.html">Skin Rejuvenation</a></li>
-                                <li><a href="treatments.html">Pigmentation</a></li>
+                                <li><a href="treatments/anti-aging-facial.html">Anti-Aging Facial</a></li>
+                                <li><a href="treatments/hydrafacial.html">HydraFacial</a></li>
+                                <li><a href="treatments/carbon-facial.html">Carbon Facial</a></li>
+                                <li><a href="treatments/microneedling.html">Microneedling</a></li>
+                                <li><a href="treatments/led-light-therapy.html">LED Light Therapy</a></li>
+                                <li><a href="treatments/chemical-peels.html">Chemical Peels</a></li>
                             </ul>
                         </div>
                         <div>
-                            <div class="col-title">Body & Hair</div>
+                            <a href="treatments.html#anti-aging-injectables" class="col-title">Anti-Aging &amp; Injectables</a>
                             <ul>
-                                <li><a href="treatments.html">Hair Treatments</a></li>
-                                <li><a href="treatments.html">Medi Facials</a></li>
-                                <li><a href="treatments.html">Chemical Peels</a></li>
-                                <li><a href="treatments.html">Body Contouring</a></li>
-                                <li><a href="treatments.html">Bridal Skincare</a></li>
+                                <li><a href="treatments/dermal-fillers.html">Dermal Fillers</a></li>
+                                <li><a href="treatments/botox.html">Botox</a></li>
+                                <li><a href="treatments/profhilo.html">Profhilo</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="treatments.html#body-hair" class="col-title">Body &amp; Hair</a>
+                            <ul>
+                                <li><a href="treatments/laser-hair-removal.html">Laser Hair Removal</a></li>
+                                <li><a href="treatments/body-contouring.html">Body Contouring</a></li>
+                                <li><a href="treatments/rf-skin-tightening.html">RF Skin Tightening</a></li>
                             </ul>
                         </div>
                     </div>
@@ -250,57 +299,201 @@
             </div>
         </section>
 
-        <section class="section-padding">
+        <section class="section-padding" id="skin-treatments">
             <div class="container">
-                <h2 class="section-title">Facial Treatments</h2>
-                <div class="grid-3">
-                    <div class="service-card animate-on-scroll">
-                        <div class="service-icon">✦</div>
-                        <h3>Anti-Aging Facial</h3>
-                        <p>Comprehensive treatment targeting fine lines, wrinkles, and loss of elasticity.</p>
-                        <a href="treatments/anti-aging-facial.html" class="learn-more">Learn More →</a>
-                    </div>
-                    <div class="service-card animate-on-scroll delay-1">
-                        <div class="service-icon">✦</div>
-                        <h3>LED Light Therapy</h3>
-                        <p>Non-invasive light treatment that stimulates cellular activity.</p>
-                        <a href="book-appointment.html" class="learn-more">Learn More →</a>
-                    </div>
-                    <div class="service-card animate-on-scroll delay-2">
-                        <div class="service-icon">✦</div>
-                        <h3>Carbon Facial</h3>
-                        <p>Laser-based treatment that deeply cleanses pores and evens skin tone.</p>
-                        <a href="book-appointment.html" class="learn-more">Learn More →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <h2 class="section-title">Skin Treatments</h2>
 
-        <section class="section-padding" style="background: var(--color-bg-secondary);">
-            <div class="container">
-                <h2 class="section-title">Advanced Procedures</h2>
+                <div class="subcategory-block">
+                <h3 class="subcategory-title" id="facial-treatments">Facial Treatments</h3>
                 <div class="grid-3">
-                    <div class="service-card animate-on-scroll">
-                        <div class="service-icon">✦</div>
-                        <h3>Dermal Fillers</h3>
-                        <p>Hyaluronic acid injectables that restore volume and smooth wrinkles.</p>
-                        <a href="book-appointment.html" class="learn-more">Learn More →</a>
+                    <div class="treatment-card animate-on-scroll">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">Anti-Aging Facial</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>Anti-Aging Facial</h3>
+                            <p>Advanced peptide and antioxidant therapy that restores facial volume, smooths expression lines, and improves skin firmness.</p>
+                            <a href="treatments/anti-aging-facial.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
                     </div>
-                    <div class="service-card animate-on-scroll delay-1">
-                        <div class="service-icon">✦</div>
-                        <h3>Botox</h3>
-                        <p>Muscle-relaxing injections that reduce the appearance of dynamic wrinkles.</p>
-                        <a href="book-appointment.html" class="learn-more">Learn More →</a>
+                    <div class="treatment-card animate-on-scroll delay-1">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">HydraFacial</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>HydraFacial</h3>
+                            <p>Medical-grade hydradermabrasion that cleanses, exfoliates, and infuses skin with intensive serums.</p>
+                            <a href="treatments/hydrafacial.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
                     </div>
-                    <div class="service-card animate-on-scroll delay-2">
-                        <div class="service-icon">✦</div>
-                        <h3>Microneedling</h3>
-                        <p>Collagen-inducing treatment that stimulates natural healing.</p>
-                        <a href="book-appointment.html" class="learn-more">Learn More →</a>
+                    <div class="treatment-card animate-on-scroll delay-2">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">Carbon Facial</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>Carbon Facial</h3>
+                            <p>Laser-activated carbon peel that extracts deep impurities, refines pore appearance, and resurfaces uneven skin texture.</p>
+                            <a href="treatments/carbon-facial.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
                     </div>
                 </div>
+                </div>
+
+                <div class="subcategory-block">
+                <h3 class="subcategory-title" id="anti-aging"><span id="anti-aging-injectables"></span>Anti-Aging &amp; Injectables</h3>
+                <div class="grid-3">
+                    <div class="treatment-card animate-on-scroll">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">Dermal Fillers</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>Dermal Fillers</h3>
+                            <p>Premium hyaluronic acid injectables that restore facial volume, soften deep nasolabial folds, and enhance natural contours.</p>
+                            <a href="treatments/dermal-fillers.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
+                    </div>
+                    <div class="treatment-card animate-on-scroll delay-1">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">Botox</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>Botox</h3>
+                            <p>Purified neurotoxin injections that relax expression muscles to smooth forehead lines, crow's feet, and frown creases.</p>
+                            <a href="treatments/botox.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
+                    </div>
+                    <div class="treatment-card animate-on-scroll delay-2">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">Profhilo</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>Profhilo</h3>
+                            <p>Bio-remodeling hyaluronic acid injectable that stimulates collagen and elastin for skin laxity and deep hydration.</p>
+                            <a href="treatments/profhilo.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="subcategory-block">
+                <h3 class="subcategory-title" id="skin-rejuvenation">Skin Rejuvenation</h3>
+                <div class="grid-3">
+                    <div class="treatment-card animate-on-scroll">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">Microneedling</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>Microneedling</h3>
+                            <p>Medical-grade micro-injury therapy that triggers collagen synthesis, tightens enlarged pores, and resurfaces scarred or aged skin.</p>
+                            <a href="treatments/microneedling.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
+                    </div>
+                    <div class="treatment-card animate-on-scroll delay-1">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">LED Light Therapy</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>LED Light Therapy</h3>
+                            <p>Clinical-grade photobiomodulation using targeted wavelengths to accelerate cellular repair, reduce inflammation, and boost collagen.</p>
+                            <a href="treatments/led-light-therapy.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
+                    </div>
+                    <div class="treatment-card animate-on-scroll delay-2">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">Chemical Peels</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>Chemical Peels</h3>
+                            <p>Medical-grade chemical exfoliants that resurface photodamaged skin, improve texture, and correct dyspigmentation.</p>
+                            <a href="treatments/chemical-peels.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
             </div>
         </section>
+        <!-- future: laser-treatments, acne-treatments, pigmentation-treatments -->
+
+        <section class="section-padding" id="body-hair">
+            <div class="container">
+                <h2 class="section-title">Body &amp; Hair</h2>
+
+                <div class="subcategory-block">
+                <h3 class="subcategory-title" id="body-treatments">Body Treatments</h3>
+                <div class="grid-3">
+                    <div class="treatment-card animate-on-scroll">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">Laser Hair Removal</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>Laser Hair Removal</h3>
+                            <p>Clinical diode laser system that targets hair follicles at the root for safe, permanent reduction across all skin types.</p>
+                            <a href="treatments/laser-hair-removal.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
+                    </div>
+                    <div class="treatment-card animate-on-scroll delay-1">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">Body Contouring</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>Body Contouring</h3>
+                            <p>Non-surgical cryo- and radiofrequency technology that reduces targeted fat deposits and tightens lax skin.</p>
+                            <a href="treatments/body-contouring.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
+                    </div>
+                    <div class="treatment-card animate-on-scroll delay-2">
+                        <div class="treatment-card-image">
+                            <div class="treatment-card-placeholder">
+                                <span class="placeholder-icon">✦</span>
+                                <span class="placeholder-label">RF Skin Tightening</span>
+                            </div>
+                        </div>
+                        <div class="treatment-card-content">
+                            <h3>RF Skin Tightening</h3>
+                            <p>Deep dermal heating technology that contracts collagen fibers and stimulates neocollagenesis for lifted, firmer skin.</p>
+                            <a href="treatments/rf-skin-tightening.html" class="treatment-card-cta">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- future: hair-treatments, bridal-skincare -->
     </main>
 
     <footer class="footer">
