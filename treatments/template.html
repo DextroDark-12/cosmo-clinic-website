@@ -65,8 +65,8 @@
                     <a href="#">About</a>
                     <div class="dropdown-menu">
                         <ul>
-                            <li><a href="../about/doctor.html">Our Doctor</a></li>
-                            <li><a href="../about/clinic.html">Our Clinic</a></li>
+                            <li><a href="../about-doctor.html">Our Doctor</a></li>
+                            <li><a href="../about-clinic.html">Our Clinic</a></li>
                         </ul>
                     </div>
                 </div>
@@ -129,9 +129,10 @@
                     <a href="../gallery.html">Gallery</a>
                     <div class="dropdown-menu">
                         <ul>
+                            <li><a href="../gallery.html">Clinic Gallery</a></li>
                             <li><a href="../gallery.html">Before & After</a></li>
-                            <li><a href="../gallery.html">Transformations</a></li>
-                            <li><a href="../gallery.html">Reviews</a></li>
+                            <li><a href="../testimonials.html">Video Testimonials</a></li>
+                            <li><a href="../testimonials.html">Reviews</a></li>
                         </ul>
                     </div>
                 </div>
@@ -149,7 +150,118 @@
     </nav>
 
     <div class="mobile-menu-overlay"></div>
-    <div class="mobile-menu" role="dialog" aria-hidden="true"></div>
+    <div class="mobile-menu" role="dialog" aria-hidden="true">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-logo">✦ COSMO</span>
+            <button class="mobile-menu-close" aria-label="Close menu">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <div class="mobile-menu-panel active" data-panel="main">
+                <ul class="mobile-nav-list">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#" class="has-submenu" data-target="about">About ›</a></li>
+                    <li><a href="#" class="has-submenu" data-target="treatments">Treatments ›</a></li>
+                    <li><a href="#" class="has-submenu" data-target="conditions">Conditions ›</a></li>
+                    <li><a href="#" class="has-submenu" data-target="gallery">Gallery ›</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="../faq.html">FAQ</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-panel" data-panel="about" data-parent="main">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="main">‹</button>
+                    <span class="panel-title">About</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="../about-doctor.html">Our Doctor</a></li>
+                    <li><a href="../about-clinic.html">Our Clinic</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-panel" data-panel="treatments" data-parent="main">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="main">‹</button>
+                    <span class="panel-title">Treatments</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="#" class="has-submenu" data-target="treatments-skin">Skin Treatments ›</a></li>
+                    <li><a href="#" class="has-submenu" data-target="treatments-injectables">Anti-Aging & Injectables ›</a></li>
+                    <li><a href="#" class="has-submenu" data-target="treatments-body">Body & Hair ›</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-panel" data-panel="treatments-skin" data-parent="treatments">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="treatments">‹</button>
+                    <span class="panel-title">Skin Treatments</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="anti-aging-facial.html">Anti-Aging Facial</a></li>
+                    <li><a href="hydrafacial.html">HydraFacial</a></li>
+                    <li><a href="carbon-facial.html">Carbon Facial</a></li>
+                    <li><a href="microneedling.html">Microneedling</a></li>
+                    <li><a href="led-light-therapy.html">LED Light Therapy</a></li>
+                    <li><a href="chemical-peels.html">Chemical Peels</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-panel" data-panel="treatments-injectables" data-parent="treatments">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="treatments">‹</button>
+                    <span class="panel-title">Anti-Aging & Injectables</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="dermal-fillers.html">Dermal Fillers</a></li>
+                    <li><a href="botox.html">Botox</a></li>
+                    <li><a href="profhilo.html">Profhilo</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-panel" data-panel="treatments-body" data-parent="treatments">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="treatments">‹</button>
+                    <span class="panel-title">Body & Hair</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="laser-hair-removal.html">Laser Hair Removal</a></li>
+                    <li><a href="body-contouring.html">Body Contouring</a></li>
+                    <li><a href="rf-skin-tightening.html">RF Skin Tightening</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-panel" data-panel="conditions" data-parent="main">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="main">‹</button>
+                    <span class="panel-title">Conditions</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="#" class="has-submenu" data-target="conditions-skin">Skin Concerns ›</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-panel" data-panel="conditions-skin" data-parent="conditions">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="conditions">‹</button>
+                    <span class="panel-title">Skin Concerns</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="../conditions.html">Acne & Scars</a></li>
+                    <li><a href="../conditions.html">Pigmentation</a></li>
+                    <li><a href="../conditions.html">Aging Skin</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-panel" data-panel="gallery" data-parent="main">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="main">‹</button>
+                    <span class="panel-title">Gallery</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="../gallery.html">Clinic Gallery</a></li>
+                    <li><a href="../gallery.html">Before & After</a></li>
+                    <li><a href="../testimonials.html">Video Testimonials</a></li>
+                    <li><a href="../testimonials.html">Reviews</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="mobile-menu-cta">
+            <a href="../book-appointment.html" class="btn btn-primary">Book Appointment</a>
+        </div>
+    </div>
 
     <main>
         <!-- ═══════════════════════════════════════════

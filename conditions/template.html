@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%%CONDITION%% | Conditions | Cosmo Skin Clinic</title>
+    <meta name="description" content="%%META_DESC%%">
+    <meta name="keywords" content="%%META_KEYWORDS%%">
+    <link rel="canonical" href="https://cosmoskinclinic.com/conditions/%%SLUG%%.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cosmoskinclinic.com/conditions/%%SLUG%%.html">
+    <meta property="og:title" content="%%CONDITION%% | Cosmo Skin Clinic">
+    <meta property="og:description" content="%%OG_DESC%%">
+    <meta property="og:image" content="https://cosmoskinclinic.com/assets/images/og-conditions.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="%%CONDITION%% | Cosmo Skin Clinic">
+    <meta name="twitter:description" content="%%TWITTER_DESC%%">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="condition-page.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "%%CONDITION%% - Treatment Options",
+      "description": "%%SCHEMA_DESC%%",
+      "about": {
+        "@type": "MedicalCondition",
+        "name": "%%CONDITION%%"
+      },
+      "provider": {
+        "@type": "MedicalClinic",
+        "name": "Cosmo Skin Clinic"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 1: HERO
+         Asymmetrical editorial composition
+         ═══════════════════════════════════════════ -->
+    <section class="condition-hero">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>&rsaquo;</span>
+                    <span>Conditions</span>
+                    <span>&rsaquo;</span>
+                    <span class="current">%%CONDITION%%</span>
+                </nav>
+                <h1>%%CONDITION%%</h1>
+                <p class="hero-subtitle">%%HERO_SUBTITLE%%</p>
+                <div class="hero-ctas">
+                    <a href="../book-appointment.html" class="btn-solid">Book Consultation</a>
+                    <a href="#recommended-treatments" class="btn-outline">How We Can Help</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-image-placeholder">
+                    <span>%%HERO_IMAGE_LABEL%%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 2: OVERVIEW
+         Editorial asymmetry: overlapping images left, text right
+         ═══════════════════════════════════════════ -->
+    <section class="section-overview" id="condition-overview">
+        <div class="overview-inner">
+            <div class="image-group">
+                <div class="editorial-img editorial-img-1" aria-label="Treatment visual 1">
+                    <div class="placeholder-text">%%OVERVIEW_IMG_1%%</div>
+                </div>
+                <div class="editorial-img editorial-img-2" aria-label="Treatment visual 2">
+                    <div class="placeholder-text">%%OVERVIEW_IMG_2%%</div>
+                </div>
+                <div class="editorial-img editorial-img-3" aria-label="Treatment visual 3">
+                    <div class="placeholder-text">%%OVERVIEW_IMG_3%%</div>
+                </div>
+            </div>
+
+            <div class="overview-text-content">
+                <span class="label-gold">Understanding Your Skin</span>
+                <h2>%%OVERVIEW_HEADING%%</h2>
+                <p>%%OVERVIEW_LEAD%%</p>
+                <p>%%OVERVIEW_BODY%%</p>
+
+                <!-- Dual card: Symptoms + Causes combined -->
+                <div class="dual-cards">
+                    <div class="info-card">
+                        <h3>Common Signs</h3>
+                        <ul>
+                            <li>%%SYMPTOM_1%%</li>
+                            <li>%%SYMPTOM_2%%</li>
+                            <li>%%SYMPTOM_3%%</li>
+                            <li>%%SYMPTOM_4%%</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Root Causes</h3>
+                        <ul>
+                            <li>%%CAUSE_1%%</li>
+                            <li>%%CAUSE_2%%</li>
+                            <li>%%CAUSE_3%%</li>
+                            <li>%%CAUSE_4%%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 3: RECOMMENDED TREATMENTS
+         Curated, premium, emotionally grounded
+         ═══════════════════════════════════════════ -->
+    <section class="section-treatments" id="recommended-treatments">
+        <div class="container-large">
+            <div class="treatment-intro">
+                <span class="label-gold">Personalised Care</span>
+                <h2>Recommended Treatments</h2>
+                <p>%%TREATMENTS_INTRO%%</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <article class="treatment-card">
+                    <div class="card-image">
+                        <div class="placeholder-text">%%TREATMENT_1_IMG%%</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>%%TREATMENT_1_NAME%%</h3>
+                        <p class="treatment-why">%%TREATMENT_1_WHY%%</p>
+                        <a href="../treatments/%%TREATMENT_1_SLUG%%.html" class="card-link">Explore Treatment &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="treatment-card">
+                    <div class="card-image">
+                        <div class="placeholder-text">%%TREATMENT_2_IMG%%</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>%%TREATMENT_2_NAME%%</h3>
+                        <p class="treatment-why">%%TREATMENT_2_WHY%%</p>
+                        <a href="../treatments/%%TREATMENT_2_SLUG%%.html" class="card-link">Explore Treatment &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Card 3 (Optional / Flagship) -->
+                <article class="treatment-card" data-optional="true">
+                    <div class="card-image">
+                        <div class="placeholder-text">%%TREATMENT_3_IMG%%</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>%%TREATMENT_3_NAME%%</h3>
+                        <p class="treatment-why">%%TREATMENT_3_WHY%%</p>
+                        <a href="../treatments/%%TREATMENT_3_SLUG%%.html" class="card-link">Explore Treatment &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 4: BEFORE / AFTER RESULTS
+         Restrained, scalable, future-proof
+         ═══════════════════════════════════════════ -->
+    <section class="section-results" id="results">
+        <div class="container-small">
+            <span class="label-gold">Evidence</span>
+            <h2>Real Results</h2>
+            <p>Every patient journey is unique. These transformations represent the range of outcomes our specialists achieve with personalised protocols.</p>
+
+            <div class="results-frame">
+                <div class="placeholder-img" aria-label="Before treatment">Before</div>
+                <div class="placeholder-img" aria-label="After treatment">After</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 5: AFTERCARE
+         Lightweight, calm, credible
+         ═══════════════════════════════════════════ -->
+    <section class="section-aftercare">
+        <div class="container-small">
+            <div class="aftercare-content">
+                <span class="label-gold">After Your Treatment</span>
+                <h2>Recovery &amp; Aftercare</h2>
+                <p>Proper aftercare is the most important part of achieving and maintaining your results.</p>
+            </div>
+
+            <div class="aftercare-list">
+                <div class="aftercare-item">
+                    <h4>Avoid Sun Exposure</h4>
+                    <p>Use SPF 50+ daily for at least 2&ndash;4 weeks post-treatment to protect healing skin.</p>
+                </div>
+                <div class="aftercare-item">
+                    <h4>Gentle Skincare Only</h4>
+                    <p>Stick to a mild cleanser and fragrance-free moisturiser. No active acids for 7 days.</p>
+                </div>
+                <div class="aftercare-item">
+                    <h4>Stay Hydrated</h4>
+                    <p>Drink plenty of water. Your skin needs internal hydration and room to breathe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 6: FAQ
+         Tight, editorial, premium accordion
+         ═══════════════════════════════════════════ -->
+    <section class="section-faq" id="faq">
+        <div class="faq-content">
+            <span class="label-gold">Questions</span>
+            <h2>Frequently Asked</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>%%FAQ_1_Q%%</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>%%FAQ_1_A%%</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>%%FAQ_2_Q%%</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>%%FAQ_2_A%%</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>%%FAQ_3_Q%%</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>%%FAQ_3_A%%</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>%%FAQ_4_Q%%</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>%%FAQ_4_A%%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION 7: CTA BANNER
+         Calm confidence, warm gold-tinted
+         ═══════════════════════════════════════════ -->
+    <section class="section-cta">
+        <div class="cta-content">
+            <h2>Ready to Begin?</h2>
+            <p>Your first consultation is the start of a personalised care plan designed around your skin.</p>
+            <div class="cta-buttons">
+                <a href="../book-appointment.html" class="btn-solid">Book a Consultation</a>
+                <a href="../contact.html" class="btn-outline">Ask a Question</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-text">&diams; COSMO</span>
+                        <span class="logo-sub">Skin Clinic</span>
+                    </div>
+                    <p>Premium dermatology care for radiant, healthy skin.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Conditions</h4>
+                    <ul>
+                        <li><a href="aging-skin.html">Aging Skin</a></li>
+                        <li><a href="acne-scarring.html">Acne &amp; Scarring</a></li>
+                        <li><a href="pigmentation.html">Pigmentation</a></li>
+                        <li><a href="hair-loss.html">Hair Loss</a></li>
+                        <li><a href="../conditions.html">All Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Treatments</h4>
+                    <ul>
+                        <li><a href="../treatments.html">All Treatments</a></li>
+                        <li><a href="../book-appointment.html">Book</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="../contact.html">Get in Touch</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cosmo Skin Clinic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/faq.js"></script>
+</body>
+</html>
