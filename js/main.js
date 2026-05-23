@@ -284,6 +284,12 @@
     const contactForm = document.querySelector('.contact-form');
     if (!contactForm) return;
 
+    // Skip if form-handler.js has already initialized this form
+    if (contactForm.hasAttribute('data-form-handler-initialized')) {
+      console.log('[main.js] Contact form already handled by form-handler.js, skipping.');
+      return;
+    }
+
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
