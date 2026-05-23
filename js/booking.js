@@ -11,24 +11,33 @@
         const form = document.getElementById('bookingForm');
         if (!form) return;
 
-        form.onsubmit = async function (e) {
-            e.preventDefault();
+        // Remove any conflicting/default HTML form behavior
+        form.removeAttribute('action');
+        form.removeAttribute('method');
+        form.onsubmit = null;
 
-            // Collect form values into the required payload shape
-            function fieldValue(name) {
-                var el = form.querySelector('[name="' + name + '"]');
-                return el ? el.value.trim() : '';
-            }
+        // Helper: get trimmed value of an element by its id
+        function byId(id) {
+            var el = document.getElementById(id);
+            return el ? el.value.trim() : '';
+        }
+
+        // Attach fresh submit listener (fully JS-controlled, no page reload)
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            console.log('Submit intercepted');
 
             var payload = {
-                name: fieldValue('name'),
-                email: fieldValue('email'),
-                phone: fieldValue('phone'),
-                treatment: fieldValue('treatment'),
-                message: fieldValue('message')
+                name: byId('name'),
+                email: byId('email'),
+                phone: byId('phone'),
+                treatment: byId('treatment'),
+                message: byId('message')
             };
 
-            console.log('Submitting form...', payload);
+            console.log('Payload:', payload);
 
             try {
                 var response = await fetch('https://unmanaged-manor-boxing.ngrok-free.dev/webhook/clinic-lead', {
@@ -43,7 +52,7 @@
 
                 if (response.ok) {
                     if (window.showToast) {
-                        showToast("Thank you \u2014 we\'ll be in touch within 24 hours.", 'success');
+                        showToast("Thank you \u2014 we\u2019ll be in touch within 24 hours.", 'success');
                     }
                     form.reset();
                 } else {
@@ -58,7 +67,7 @@
                     showToast('Something went wrong. Please try again or call us.', 'error');
                 }
             }
-        };
+        });
     }
 
     function initDatePicker() {
