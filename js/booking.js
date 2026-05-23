@@ -11,20 +11,54 @@
         const form = document.getElementById('bookingForm');
         if (!form) return;
 
-        form.addEventListener('submit', function(e) {
+        form.onsubmit = async function (e) {
             e.preventDefault();
 
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-
-            console.log('Booking submitted:', data);
-
-            if (window.showToast) {
-                showToast('Appointment request submitted successfully. We will contact you within 24 hours to confirm.', 'success');
+            // Collect form values into the required payload shape
+            function fieldValue(name) {
+                var el = form.querySelector('[name="' + name + '"]');
+                return el ? el.value.trim() : '';
             }
 
-            form.reset();
-        });
+            var payload = {
+                name: fieldValue('name'),
+                email: fieldValue('email'),
+                phone: fieldValue('phone'),
+                treatment: fieldValue('treatment'),
+                message: fieldValue('message')
+            };
+
+            console.log('Submitting form...', payload);
+
+            try {
+                var response = await fetch('https://unmanaged-manor-boxing.ngrok-free.dev/webhook/clinic-lead', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                console.log('Webhook response:', response);
+
+                if (response.ok) {
+                    if (window.showToast) {
+                        showToast("Thank you \u2014 we\'ll be in touch within 24 hours.", 'success');
+                    }
+                    form.reset();
+                } else {
+                    console.error('Webhook returned status', response.status);
+                    if (window.showToast) {
+                        showToast('Something went wrong. Please try again or call us.', 'error');
+                    }
+                }
+            } catch (error) {
+                console.error('Network / fetch error:', error);
+                if (window.showToast) {
+                    showToast('Something went wrong. Please try again or call us.', 'error');
+                }
+            }
+        };
     }
 
     function initDatePicker() {
@@ -106,8 +140,21 @@
             
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                showToast('Booking confirmed!', 'success');
-                modal.remove();
+
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                if (typeof window.submitLeadWithFeedback === 'function') {
+                    window.submitLeadWithFeedback(data, {
+                        onSuccess: function () {
+                            modal.remove();
+                        }
+                    });
+                } else {
+                    // Fallback if lead-submission.js hasn't loaded
+                    showToast('Booking confirmed!', 'success');
+                    modal.remove();
+                }
             });
         }
         

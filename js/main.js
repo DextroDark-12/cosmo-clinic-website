@@ -290,13 +290,21 @@
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData.entries());
 
-      console.log('Contact form submitted:', data);
-
-      if (window.showToast) {
-        showToast('Message sent successfully. We will respond within 24 hours.', 'success');
+      // Submit lead to the n8n webhook (sends WhatsApp notification via Twilio)
+      if (typeof window.submitLeadWithFeedback === 'function') {
+        window.submitLeadWithFeedback(data, {
+          onSuccess: function () {
+            contactForm.reset();
+          }
+        });
+      } else {
+        // Fallback if lead-submission.js hasn't loaded
+        console.log('Contact form submitted:', data);
+        if (window.showToast) {
+          showToast('Message sent successfully. We will respond within 24 hours.', 'success');
+        }
+        contactForm.reset();
       }
-
-      contactForm.reset();
     });
   }
 
