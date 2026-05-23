@@ -4,20 +4,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     if (faqItems.length === 0) return;
-    
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        
+
         if (question) {
-            question.addEventListener('click', function() {
+            question.addEventListener('click', function(e) {
+                e.preventDefault();
                 const isActive = item.classList.contains('active');
-                
-                faqItems.forEach(i => i.classList.remove('active'));
-                
+
+                // Close all FAQ items
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    const answer = i.querySelector('.faq-answer');
+                    const icon = i.querySelector('.faq-icon');
+                    if (answer) answer.style.maxHeight = '0';
+                    if (icon) icon.textContent = '+';
+                });
+
+                // Open clicked item if it wasn't active
                 if (!isActive) {
                     item.classList.add('active');
+                    const answer = item.querySelector('.faq-answer');
+                    const icon = item.querySelector('.faq-icon');
+                    if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+                    if (icon) icon.textContent = '−';
                 }
             });
         }

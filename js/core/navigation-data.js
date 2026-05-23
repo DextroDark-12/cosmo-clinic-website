@@ -38,12 +38,12 @@ const navigationData = {
           label: 'Gallery',
           hasSubmenu: true,
           submenu: [
-            { id: 'gallery', label: 'Clinic Gallery', url: 'gallery.html', isPage: true },
-            { id: 'before-after', label: 'Before & After', url: 'gallery.html', isPage: true },
-            { id: 'video-testimonials', label: 'Video Testimonials', url: 'testimonials.html', isPage: true }
+            { id: 'gallery', label: 'Clinic Gallery', url: 'gallery.html#clinic-gallery', isPage: true },
+            { id: 'before-after', label: 'Before & After', url: 'gallery.html#before-after', isPage: true },
+            { id: 'video-testimonials', label: 'Video Testimonials', url: 'gallery.html#video-testimonials', isPage: true },
+            { id: 'client-reviews', label: 'Client Reviews', url: 'gallery.html#client-reviews', isPage: true }
           ]
         },
-        { id: 'reviews', label: 'Reviews', url: 'testimonials.html', isPage: true },
         { id: 'blog', label: 'Blog', url: 'blog.html', isPage: true },
         { id: 'faq', label: 'FAQ', url: 'faq.html', isPage: true },
         { id: 'contact', label: 'Contact', url: 'contact.html', isPage: true }
@@ -156,19 +156,14 @@ const navigationData = {
           label: 'Video Results',
           hasSubmenu: true,
           submenu: [
-            { id: 'patient-stories', label: 'Patient Stories', url: 'testimonials.html', isPage: true },
-            { id: 'treatment-videos', label: 'Treatment Videos', url: 'testimonials.html', isPage: true },
+            { id: 'patient-stories', label: 'Patient Stories', url: 'gallery.html#video-testimonials', isPage: true },
+            { id: 'treatment-videos', label: 'Treatment Videos', url: 'gallery.html#video-testimonials', isPage: true },
             { id: 'clinic-tour', label: 'Clinic Tour', url: 'gallery.html', isPage: true }
           ]
         }
       ]
     },
-    {
-      id: 'reviews',
-      label: 'Reviews',
-      url: 'testimonials.html',
-      isPage: true
-    },
+
     {
       id: 'blog',
       label: 'Blog',

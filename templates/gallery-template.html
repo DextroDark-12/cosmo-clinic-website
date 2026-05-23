@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- =============================================
+         GALLERY PAGE META - REPLACE PER CATEGORY
+         ============================================= -->
+    <title><!-- GALLERY_TITLE --> | Cosmo Skin Clinic</title>
+    <meta name="description" content="<!-- GALLERY_META_DESCRIPTION -->">
+    <meta name="keywords" content="before after results, transformations, <!-- GALLERY_KEYWORDS -->">
+    <link rel="canonical" href="https://cosmoskinclinic.com/gallery/<!-- GALLERY_SLUG -->.html">
+    <!-- ============================================= -->
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cosmoskinclinic.com/gallery/<!-- GALLERY_SLUG -->.html">
+    <meta property="og:title" content="<!-- GALLERY_TITLE --> | Cosmo Skin Clinic">
+    <meta property="og:description" content="<!-- GALLERY_META_DESCRIPTION -->">
+    <meta property="og:image" content="https://cosmoskinclinic.com/assets/images/og-gallery.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<!-- GALLERY_TITLE --> | Cosmo Skin Clinic">
+    <meta name="twitter:description" content="<!-- GALLERY_META_DESCRIPTION -->">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <!-- =============================================
+         NAVIGATION - Standard global navbar
+         Active state: Gallery dropdown open
+         ============================================= -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-logo">
+                <span class="logo-text">✦ COSMO</span>
+                <span class="logo-sub">Skin Clinic</span>
+            </a>
+            <div class="navbar-nav">
+                <a href="../index.html">Home</a>
+                <div class="dropdown about-dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../about/doctor.html">Our Doctor</a></li>
+                            <li><a href="../about/clinic.html">Our Clinic</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown treatments-dropdown">
+                    <a href="../treatments/index.html">Treatments</a>
+                    <div class="dropdown-menu">
+                        <div>
+                            <div class="col-title">Skin Treatments</div>
+                            <ul>
+                                <li><a href="../treatments/anti-aging.html">Anti Aging</a></li>
+                                <li><a href="../treatments/hydrafacial.html">Hydrafacial</a></li>
+                                <li><a href="../treatments/botox.html">Botox</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="col-title">Body & Hair</div>
+                            <ul>
+                                <li><a href="../treatments/laser-hair-removal.html">Laser Hair Removal</a></li>
+                                <li><a href="../treatments/body-contouring.html">Body Contouring</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown conditions-dropdown">
+                    <a href="../conditions/index.html">Conditions</a>
+                    <div class="dropdown-menu">
+                        <div>
+                            <div class="col-title">Skin Concerns</div>
+                            <ul>
+                                <li><a href="../conditions/acne.html">Acne & Scars</a></li>
+                                <li><a href="../conditions/pigmentation.html">Pigmentation</a></li>
+                                <li><a href="../conditions/aging-skin.html">Aging Skin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown gallery-dropdown">
+                    <a href="index.html" class="active">Gallery</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="before-after.html">Before & After</a></li>
+                            <li><a href="transformations.html">Transformations</a></li>
+                            <li><a href="reviews.html">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../faq.html">FAQ</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+            <a href="../book-appointment.html" class="btn btn-primary btn-book">Book Appointment</a>
+            <button class="mobile-toggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu" role="dialog" aria-hidden="true">
+        <!-- Standard mobile menu structure -->
+    </div>
+
+    <main>
+        <!-- =============================================
+             SECTION 1: HERO - TRUST + PROOF
+             ============================================= -->
+        <section class="hero hero-compact">
+            <div class="hero-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>›</span>
+                    <span><!-- GALLERY_HERO_HEADING --></span>
+                </nav>
+                <div class="gold-line"></div>
+                <h1><!-- GALLERY_HERO_HEADING --></h1>
+                <p><!-- GALLERY_HERO_MESSAGE --></p>
+                <div class="hero-cta">
+                    <a href="../book-appointment.html" class="btn btn-primary">Book Consultation</a>
+                    <a href="#transformations" class="btn btn-outline">View Results</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 2: CATEGORY NAVIGATION
+             Replace: Active category state, other category links
+             ============================================= -->
+        <section class="gallery-categories section-padding">
+            <div class="container">
+                <nav class="category-tabs" role="tablist">
+                    <!-- CATEGORY_TAB_1 -->
+                    <a href="before-after.html" class="category-tab" role="tab">
+                        <span class="tab-icon">📸</span>
+                        <span>Before & After</span>
+                    </a>
+                    <!-- CATEGORY_TAB_2 -->
+                    <a href="transformations.html" class="category-tab" role="tab">
+                        <span class="tab-icon">✨</span>
+                        <span>Transformations</span>
+                    </a>
+                    <!-- CATEGORY_TAB_3 -->
+                    <a href="reviews.html" class="category-tab" role="tab">
+                        <span class="tab-icon">⭐</span>
+                        <span>Reviews</span>
+                    </a>
+                    <!-- CATEGORY_TAB_4 -->
+                    <a href="index.html" class="category-tab" role="tab">
+                        <span class="tab-icon">🏥</span>
+                        <span>Clinic</span>
+                    </a>
+                </nav>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 3: FEATURED TRANSFORMATION
+             Replace: Featured case with large comparison
+             ============================================= -->
+        <section id="featured" class="section-padding">
+            <div class="container">
+                <div class="featured-case animate-on-scroll">
+                    <h2 class="section-title">Featured Transformation</h2>
+                    <!-- FEATURED_BEFORE_AFTER -->
+                    <div class="comparison-slider featured-comparison">
+                        <img src="<!-- FEATURED_BEFORE_URL -->" alt="Before" class="comparison-image comparison-after">
+                        <img src="<!-- FEATURED_AFTER_URL -->" alt="After" class="comparison-image comparison-before">
+                        <span class="comparison-label comparison-label-before">Before</span>
+                        <span class="comparison-label comparison-label-after">After</span>
+                        <div class="comparison-handle"></div>
+                    </div>
+                    <div class="featured-caption">
+                        <h3><!-- FEATURED_CASE_TITLE --></h3>
+                        <p class="text-muted"><!-- FEATURED_CASE_DESCRIPTION --></p>
+                        <p class="text-gold"><!-- FEATURED_TREATMENT_USED --></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 4: TRANSFORMATION GRID
+             Replace: Multiple before/after comparisons by treatment
+             ============================================= -->
+        <section id="transformations" class="section-padding section-alt">
+            <div class="container">
+                <h2 class="section-title"><!-- SECTION_HEADING --></h2>
+                <!-- FILTER_TABS -->
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="hydrafacial">Hydrafacial</button>
+                    <button class="filter-btn" data-filter="botox">Botox</button>
+                    <button class="filter-btn" data-filter="laser">Laser</button>
+                    <button class="filter-btn" data-filter="fillers">Fillers</button>
+                </div>
+                <div class="comparison-grid">
+                    <!-- TRANSFORMATION_CARD_1 -->
+                    <div class="card comparison-item animate-on-scroll" data-category="hydrafacial">
+                        <div class="comparison-slider">
+                            <img src="<!-- TRANSFORM_1_BEFORE -->" alt="Before" class="comparison-image comparison-after">
+                            <img src="<!-- TRANSFORM_1_AFTER -->" alt="After" class="comparison-image comparison-before">
+                            <span class="comparison-label comparison-label-before">Before</span>
+                            <span class="comparison-label comparison-label-after">After</span>
+                            <div class="comparison-handle"></div>
+                        </div>
+                        <div class="comparison-info">
+                            <h4><!-- TRANSFORM_1_TITLE --></h4>
+                            <p class="text-muted"><!-- TRANSFORM_1_TREATMENT --></p>
+                        </div>
+                    </div>
+                    <!-- TRANSFORMATION_CARD_2 -->
+                    <div class="card comparison-item animate-on-scroll delay-1" data-category="botox">
+                        <div class="comparison-slider">
+                            <img src="<!-- TRANSFORM_2_BEFORE -->" alt="Before" class="comparison-image comparison-after">
+                            <img src="<!-- TRANSFORM_2_AFTER -->" alt="After" class="comparison-image comparison-before">
+                            <span class="comparison-label comparison-label-before">Before</span>
+                            <span class="comparison-label comparison-label-after">After</span>
+                            <div class="comparison-handle"></div>
+                        </div>
+                        <div class="comparison-info">
+                            <h4><!-- TRANSFORM_2_TITLE --></h4>
+                            <p class="text-muted"><!-- TRANSFORM_2_TREATMENT --></p>
+                        </div>
+                    </div>
+                    <!-- TRANSFORMATION_CARD_3 -->
+                    <div class="card comparison-item animate-on-scroll delay-2" data-category="laser">
+                        <div class="comparison-slider">
+                            <img src="<!-- TRANSFORM_3_BEFORE -->" alt="Before" class="comparison-image comparison-after">
+                            <img src="<!-- TRANSFORM_3_AFTER -->" alt="After" class="comparison-image comparison-before">
+                            <span class="comparison-label comparison-label-before">Before</span>
+                            <span class="comparison-label comparison-label-after">After</span>
+                            <div class="comparison-handle"></div>
+                        </div>
+                        <div class="comparison-info">
+                            <h4><!-- TRANSFORM_3_TITLE --></h4>
+                            <p class="text-muted"><!-- TRANSFORM_3_TREATMENT --></p>
+                        </div>
+                    </div>
+                    <!-- TRANSFORMATION_CARD_4 -->
+                    <div class="card comparison-item animate-on-scroll delay-3" data-category="fillers">
+                        <div class="comparison-slider">
+                            <img src="<!-- TRANSFORM_4_BEFORE -->" alt="Before" class="comparison-image comparison-after">
+                            <img src="<!-- TRANSFORM_4_AFTER -->" alt="After" class="comparison-image comparison-before">
+                            <span class="comparison-label comparison-label-before">Before</span>
+                            <span class="comparison-label comparison-label-after">After</span>
+                            <div class="comparison-handle"></div>
+                        </div>
+                        <div class="comparison-info">
+                            <h4><!-- TRANSFORM_4_TITLE --></h4>
+                            <p class="text-muted"><!-- TRANSFORM_4_TREATMENT --></p>
+                        </div>
+                    </div>
+                    <!-- TRANSFORMATION_CARD_5 -->
+                    <div class="card comparison-item animate-on-scroll" data-category="hydrafacial">
+                        <div class="comparison-slider">
+                            <img src="<!-- TRANSFORM_5_BEFORE -->" alt="Before" class="comparison-image comparison-after">
+                            <img src="<!-- TRANSFORM_5_AFTER -->" alt="After" class="comparison-image comparison-before">
+                            <span class="comparison-label comparison-label-before">Before</span>
+                            <span class="comparison-label comparison-label-after">After</span>
+                            <div class="comparison-handle"></div>
+                        </div>
+                        <div class="comparison-info">
+                            <h4><!-- TRANSFORM_5_TITLE --></h4>
+                            <p class="text-muted"><!-- TRANSFORM_5_TREATMENT --></p>
+                        </div>
+                    </div>
+                    <!-- TRANSFORMATION_CARD_6 -->
+                    <div class="card comparison-item animate-on-scroll delay-1" data-category="laser">
+                        <div class="comparison-slider">
+                            <img src="<!-- TRANSFORM_6_BEFORE -->" alt="Before" class="comparison-image comparison-after">
+                            <img src="<!-- TRANSFORM_6_AFTER -->" alt="After" class="comparison-image comparison-before">
+                            <span class="comparison-label comparison-label-before">Before</span>
+                            <span class="comparison-label comparison-label-after">After</span>
+                            <div class="comparison-handle"></div>
+                        </div>
+                        <div class="comparison-info">
+                            <h4><!-- TRANSFORM_6_TITLE --></h4>
+                            <p class="text-muted"><!-- TRANSFORM_6_TREATMENT --></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 5: CLIENT REVIEWS
+             Replace: Star ratings, client quotes
+             ============================================= -->
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="testimonial-grid">
+                    <!-- REVIEW_CARD_1 -->
+                    <div class="testimonial-card animate-on-scroll">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <blockquote class="testimonial-quote">
+                            <!-- REVIEW_QUOTE_1 -->
+                            <p>"<!-- REVIEW_QUOTE_1 -->"</p>
+                        </blockquote>
+                        <div class="testimonial-meta">
+                            <strong><!-- REVIEW_CLIENT_1 --></strong>
+                            <span><!-- REVIEW_TREATMENT_1 --></span>
+                            <span class="verified-badge">Verified</span>
+                        </div>
+                    </div>
+                    <!-- REVIEW_CARD_2 -->
+                    <div class="testimonial-card animate-on-scroll delay-1">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <blockquote class="testimonial-quote">
+                            <p>"<!-- REVIEW_QUOTE_2 -->"</p>
+                        </blockquote>
+                        <div class="testimonial-meta">
+                            <strong><!-- REVIEW_CLIENT_2 --></strong>
+                            <span><!-- REVIEW_TREATMENT_2 --></span>
+                            <span class="verified-badge">Verified</span>
+                        </div>
+                    </div>
+                    <!-- REVIEW_CARD_3 -->
+                    <div class="testimonial-card animate-on-scroll delay-2">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <blockquote class="testimonial-quote">
+                            <p>"<!-- REVIEW_QUOTE_3 -->"</p>
+                        </blockquote>
+                        <div class="testimonial-meta">
+                            <strong><!-- REVIEW_CLIENT_3 --></strong>
+                            <span><!-- REVIEW_TREATMENT_3 --></span>
+                            <span class="verified-badge">Verified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 2rem;">
+                    <a href="reviews.html" class="btn btn-outline">Read More Reviews</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 6: CTA
+             ============================================= -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready for Your Transformation?</h2>
+                    <p>See the Cosmo difference for yourself. Schedule a consultation to discuss your skin goals.</p>
+                    <div class="cta-buttons">
+                        <a href="../book-appointment.html" class="btn btn-primary btn-large">Book Consultation</a>
+                        <a href="../treatments/index.html" class="btn btn-outline">Explore Treatments</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =============================================
+         FOOTER - Standard global footer
+         ============================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-text">✦ COSMO</span>
+                        <span class="logo-sub">Skin Clinic</span>
+                    </div>
+                    <p>Premium dermatology care for radiant, healthy skin.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Treatments</h4>
+                    <ul>
+                        <li><a href="../treatments/anti-aging.html">Anti Aging</a></li>
+                        <li><a href="../treatments/hydrafacial.html">Hydrafacial</a></li>
+                        <li><a href="../treatments/botox.html">Botox</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about/doctor.html">About Doctor</a></li>
+                        <li><a href="index.html">Gallery</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="../contact.html">Get in Touch</a></li>
+                        <li><a href="../book-appointment.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cosmo Skin Clinic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Bar -->
+    <script src="../js/main.js"></script>
+    <script src="../js/gallery.js"></script>
+    <script src="../js/comparison.js"></script>
+</body>
+</html>

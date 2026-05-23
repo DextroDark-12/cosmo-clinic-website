@@ -1,0 +1,44 @@
+<!-- =============================================
+     REUSABLE BEFORE/AFTER SECTION
+     =============================================
+     PURPOSE: Visual proof section for treatments/conditions
+     COPY/REPLACE workflow: Copy this section, replace content
+     =============================================
+
+     SECTION ORDER: After treatment/procedure, before doctor trust
+     PLACEHOLDER TOKENS:
+       <!-- SECTION_HEADING -->       - Section title
+       <!-- BEFORE_IMAGE_URL -->     - Before image URL
+       <!-- AFTER_IMAGE_URL -->      - After image URL
+       <!-- TREATMENT_NAME -->       - Treatment name for alt text
+       <!-- RESULT_CAPTION -->       - Disclaimer text
+       <!-- VIEW_MORE_URL -->        - Link to full gallery
+     =============================================
+
+     CLASSES REQUIRED: .comparison-slider, .comparison-image,
+                       .comparison-label-before, .comparison-label-after,
+                       .comparison-handle
+     NOTE: Interactive slider requires ../js/comparison.js
+     ANIMATION: .animate-on-scroll on container
+     =============================================
+
+     USAGE EXAMPLE:
+     <section class="section-padding section-alt">
+         <div class="container">
+             <h2 class="section-title">Real Results</h2>
+             <div class="comparison-slider">
+                 <img src="<!-- BEFORE_IMAGE_URL -->" alt="Before" class="comparison-image comparison-after">
+                 <img src="<!-- AFTER_IMAGE_URL -->" alt="After" class="comparison-image comparison-before">
+                 <span class="comparison-label comparison-label-before">Before</span>
+                 <span class="comparison-label comparison-label-after">After</span>
+                 <div class="comparison-handle"></div>
+             </div>
+             <p class="text-center text-muted" style="margin-top: 1.5rem;">
+                 <!-- RESULT_CAPTION --> Results vary by individual.
+             </p>
+             <div class="text-center" style="margin-top: 2rem;">
+                 <a href="../gallery/before-after.html" class="btn btn-outline">View More Transformations</a>
+             </div>
+         </div>
+     </section>
+     ============================================= -->

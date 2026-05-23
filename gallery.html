@@ -42,18 +42,89 @@
             <a href="index.html" class="navbar-logo"><span class="logo-text">✦ COSMO</span><span class="logo-sub">Skin Clinic</span></a>
             <div class="navbar-nav">
                 <a href="index.html">Home</a>
-                <div class="dropdown"><a href="#">About</a>
-                    <div class="mega-menu">
-                        <div><h4>About</h4><ul><li><a href="about-doctor.html">Doctor</a></li><li><a href="about-clinic.html">Clinic</a></li></ul></div>
-                        <div><h4>Experience</h4><ul><li><a href="gallery.html">Gallery</a></li><li><a href="testimonials.html">Reviews</a></li></ul></div>
-                        <div><h4>Resources</h4><ul><li><a href="blog.html">Blog</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
-                        <div><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="book-appointment.html">Book</a></li></ul></div>
+                <div class="dropdown about-dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="about-doctor.html">Our Doctor</a></li>
+                            <li><a href="about-clinic.html">Our Clinic</a></li>
+                        </ul>
                     </div>
                 </div>
-                <a href="treatments.html">Treatments</a>
-                <a href="conditions.html">Conditions</a>
-                <a href="gallery.html" class="active">Gallery</a>
-                <a href="testimonials.html">Reviews</a>
+                <div class="dropdown treatments-dropdown">
+                    <a href="treatments.html">Treatments</a>
+                    <div class="dropdown-menu">
+                        <div>
+                            <a href="treatments.html#skin-treatments" class="col-title">Skin Treatments</a>
+                            <ul>
+                                <li><a href="treatments/anti-aging-facial.html">Anti-Aging Facial</a></li>
+                                <li><a href="treatments/hydrafacial.html">HydraFacial</a></li>
+                                <li><a href="treatments/carbon-facial.html">Carbon Facial</a></li>
+                                <li><a href="treatments/microneedling.html">Microneedling</a></li>
+                                <li><a href="treatments/led-light-therapy.html">LED Light Therapy</a></li>
+                                <li><a href="treatments/chemical-peels.html">Chemical Peels</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="treatments.html#anti-aging-injectables" class="col-title">Anti-Aging &amp; Injectables</a>
+                            <ul>
+                                <li><a href="treatments/dermal-fillers.html">Dermal Fillers</a></li>
+                                <li><a href="treatments/botox.html">Botox</a></li>
+                                <li><a href="treatments/profhilo.html">Profhilo</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="treatments.html#body-hair" class="col-title">Body &amp; Hair</a>
+                            <ul>
+                                <li><a href="treatments/laser-hair-removal.html">Laser Hair Removal</a></li>
+                                <li><a href="treatments/body-contouring.html">Body Contouring</a></li>
+                                <li><a href="treatments/rf-skin-tightening.html">RF Skin Tightening</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown conditions-dropdown">
+                    <a href="conditions.html">Conditions</a>
+                    <div class="dropdown-menu">
+                        <div>
+                            <div class="col-title">Skin Concerns</div>
+                            <ul>
+                                <li><a href="conditions/aging-skin.html">Aging Skin</a></li>
+                                <li><a href="conditions/acne-scarring.html">Acne &amp; Scarring</a></li>
+                                <li><a href="conditions/pigmentation.html">Pigmentation</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="col-title">Texture &amp; Tone</div>
+                            <ul>
+                                <li><a href="conditions/dark-circles.html">Dark Circles</a></li>
+                                <li><a href="conditions/uneven-texture.html">Uneven Texture</a></li>
+                                <li><a href="conditions/sensitive-skin.html">Sensitive Skin</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="col-title">Body &amp; Hair</div>
+                            <ul>
+                                <li><a href="conditions/hair-loss.html">Hair Loss</a></li>
+                                <li><a href="conditions/stretch-marks.html">Stretch Marks</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown gallery-dropdown">
+                    <a href="gallery.html" class="active">Gallery</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="gallery.html#clinic-gallery">Clinic Gallery</a></li>
+                            <li><a href="gallery.html#before-after">Before & After</a></li>
+                            <li><a href="gallery.html#video-testimonials">Video Testimonials</a></li>
+                            <li><a href="gallery.html#client-reviews">Client Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="blog.html">Blog</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
             </div>
             <a href="book-appointment.html" class="btn btn-primary btn-book">Book Appointment</a>
             <button class="mobile-toggle" aria-label="Open menu">
@@ -79,7 +150,6 @@
                     <li><a href="#" class="has-submenu" data-target="treatments">Treatments ›</a></li>
                     <li><a href="#" class="has-submenu" data-target="conditions">Conditions ›</a></li>
                     <li><a href="#" class="has-submenu" data-target="gallery">Gallery ›</a></li>
-                    <li><a href="testimonials.html">Reviews</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -102,6 +172,7 @@
                 </div>
                 <ul class="mobile-nav-list">
                     <li><a href="#" class="has-submenu" data-target="treatments-skin">Skin Treatments ›</a></li>
+                    <li><a href="#" class="has-submenu" data-target="treatments-injectables">Anti-Aging & Injectables ›</a></li>
                     <li><a href="#" class="has-submenu" data-target="treatments-body">Body & Hair ›</a></li>
                 </ul>
             </div>
@@ -111,9 +182,23 @@
                     <span class="panel-title">Skin Treatments</span>
                 </div>
                 <ul class="mobile-nav-list">
-                    <li><a href="treatments.html">Anti Aging</a></li>
-                    <li><a href="treatments.html">Acne</a></li>
-                    <li><a href="treatments.html">Laser</a></li>
+                    <li><a href="treatments/anti-aging-facial.html">Anti-Aging Facial</a></li>
+                    <li><a href="treatments/hydrafacial.html">HydraFacial</a></li>
+                    <li><a href="treatments/carbon-facial.html">Carbon Facial</a></li>
+                    <li><a href="treatments/microneedling.html">Microneedling</a></li>
+                    <li><a href="treatments/led-light-therapy.html">LED Light Therapy</a></li>
+                    <li><a href="treatments/chemical-peels.html">Chemical Peels</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-panel" data-panel="treatments-injectables" data-parent="treatments">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="treatments">‹</button>
+                    <span class="panel-title">Anti-Aging & Injectables</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="treatments/dermal-fillers.html">Dermal Fillers</a></li>
+                    <li><a href="treatments/botox.html">Botox</a></li>
+                    <li><a href="treatments/profhilo.html">Profhilo</a></li>
                 </ul>
             </div>
             <div class="mobile-menu-panel" data-panel="treatments-body" data-parent="treatments">
@@ -122,8 +207,9 @@
                     <span class="panel-title">Body & Hair</span>
                 </div>
                 <ul class="mobile-nav-list">
-                    <li><a href="treatments.html">Hair Loss</a></li>
-                    <li><a href="treatments.html">Stretch Marks</a></li>
+                    <li><a href="treatments/laser-hair-removal.html">Laser Hair Removal</a></li>
+                    <li><a href="treatments/body-contouring.html">Body Contouring</a></li>
+                    <li><a href="treatments/rf-skin-tightening.html">RF Skin Tightening</a></li>
                 </ul>
             </div>
             <div class="mobile-menu-panel" data-panel="conditions" data-parent="main">
@@ -133,6 +219,8 @@
                 </div>
                 <ul class="mobile-nav-list">
                     <li><a href="#" class="has-submenu" data-target="conditions-skin">Skin Concerns ›</a></li>
+                    <li><a href="#" class="has-submenu" data-target="conditions-texture">Texture &amp; Tone ›</a></li>
+                    <li><a href="#" class="has-submenu" data-target="conditions-body">Body &amp; Hair ›</a></li>
                 </ul>
             </div>
             <div class="mobile-menu-panel" data-panel="conditions-skin" data-parent="conditions">
@@ -141,8 +229,31 @@
                     <span class="panel-title">Skin Concerns</span>
                 </div>
                 <ul class="mobile-nav-list">
-                    <li><a href="conditions.html">Acne</a></li>
-                    <li><a href="conditions.html">Pigmentation</a></li>
+                    <li><a href="conditions/aging-skin.html">Aging Skin</a></li>
+                    <li><a href="conditions/acne-scarring.html">Acne &amp; Scarring</a></li>
+                    <li><a href="conditions/pigmentation.html">Pigmentation</a></li>
+                </ul>
+            </div>
+
+            <div class="mobile-menu-panel" data-panel="conditions-texture" data-parent="conditions">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="conditions">‹</button>
+                    <span class="panel-title">Texture &amp; Tone</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="conditions/dark-circles.html">Dark Circles</a></li>
+                    <li><a href="conditions/uneven-texture.html">Uneven Texture</a></li>
+                    <li><a href="conditions/sensitive-skin.html">Sensitive Skin</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-panel" data-panel="conditions-body" data-parent="conditions">
+                <div class="panel-header">
+                    <button class="panel-back" data-target="conditions">‹</button>
+                    <span class="panel-title">Body &amp; Hair</span>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="conditions/hair-loss.html">Hair Loss</a></li>
+                    <li><a href="conditions/stretch-marks.html">Stretch Marks</a></li>
                 </ul>
             </div>
             <div class="mobile-menu-panel" data-panel="gallery" data-parent="main">
@@ -151,9 +262,10 @@
                     <span class="panel-title">Gallery</span>
                 </div>
                 <ul class="mobile-nav-list">
-                    <li><a href="gallery.html">Photos</a></li>
-                    <li><a href="gallery.html">Videos</a></li>
-                    <li><a href="gallery.html">Before / After</a></li>
+                    <li><a href="gallery.html#clinic-gallery">Clinic Gallery</a></li>
+                    <li><a href="gallery.html#before-after">Before & After</a></li>
+                    <li><a href="gallery.html#video-testimonials">Video Testimonials</a></li>
+                    <li><a href="gallery.html#client-reviews">Client Reviews</a></li>
                 </ul>
             </div>
         </nav>
@@ -163,96 +275,203 @@
     </div>
 
     <main>
+        <!-- ====== 1. HERO ====== -->
         <section class="hero hero-compact">
             <div class="hero-content">
-                <div class="gold-line"></div>
                 <h1>Our Gallery</h1>
                 <p>Real results from real clients</p>
             </div>
         </section>
 
-        <section class="section-padding section-alt">
+        <!-- ====== 2. CLINIC GALLERY ====== -->
+        <section id="clinic-gallery" class="section-padding">
             <div class="container">
-                <div class="comparison-header">
-                    <h2>Before & After</h2>
-                    <p>Drag the slider to see real transformations from our treatments. Results vary by individual.</p>
+                <div class="section-heading">
+                    <h2>Clinic Gallery</h2>
+                    <p>Experience the Cosmo atmosphere — where clinical precision meets editorial calm</p>
                 </div>
-
-                <div class="comparison-slider">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect fill='%231a1a2e' width='800' height='450'/%3E%3Ctext fill='%23c9a96e' font-family='sans-serif' font-size='24' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3EBEFORE%3C/text%3E%3C/svg%3E" alt="Before treatment" class="comparison-image comparison-after">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect fill='%232d2d4a' width='800' height='450'/%3E%3Ctext fill='%23c9a96e' font-family='sans-serif' font-size='24' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3EAFTER%3C/text%3E%3C/svg%3E" alt="After treatment" class="comparison-image comparison-before">
-                    <span class="comparison-label comparison-label-before">Before</span>
-                    <span class="comparison-label comparison-label-after">After</span>
-                    <div class="comparison-handle"></div>
-                </div>
-
-                <div class="comparison-caption">
-                    <h4>Hydrafacial Treatment</h4>
-                    <p class="text-muted">Complete skin rejuvenation with hydrated, glowing results</p>
-                </div>
-
-                <div class="comparison-grid">
-                    <div class="card comparison-item">
-                        <div class="comparison-slider">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%231a1a2e' width='400' height='200'/%3E%3C/svg%3E" alt="Before" class="comparison-image comparison-after">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%232d2d4a' width='400' height='200'/%3E%3C/svg%3E" alt="After" class="comparison-image comparison-before">
-                            <div class="comparison-handle"></div>
+                <div class="gallery-clinic-grid">
+                    <div class="gallery-hero-tile animate-on-scroll">
+                        <img src="assets/images/gallery/clinic-gallery1.png"
+                             alt="Cosmo Skin Clinic — premium clinical environment"
+                             class="gallery-hero-img"
+                             width="1600" height="900"
+                             loading="lazy">
+                        <div class="tile-caption">
+                            <h3>The Cosmo Experience</h3>
+                            <p>Where clinical excellence meets editorial calm</p>
                         </div>
-                        <h4 style="margin-top: 1rem;">Dermal Fillers</h4>
-                        <p class="text-muted">Natural volume restoration</p>
                     </div>
-                    <div class="card comparison-item">
-                        <div class="comparison-slider">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%231a1a2e' width='400' height='200'/%3E%3C/svg%3E" alt="Before" class="comparison-image comparison-after">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%232d2d4a' width='400' height='200'/%3E%3C/svg%3E" alt="After" class="comparison-image comparison-before">
-                            <div class="comparison-handle"></div>
+                    <div class="supporting-grid">
+                        <div class="gallery-support-tile animate-on-scroll delay-1">
+                            <div class="gallery-support-placeholder">
+                                <div class="placeholder-accent">✦</div>
+                                <span class="placeholder-label">Treatment Suite</span>
+                            </div>
+                            <div class="tile-caption">
+                                <h3>Treatment Suite</h3>
+                                <p>Premium care environment</p>
+                            </div>
                         </div>
-                        <h4 style="margin-top: 1rem;">Botox Treatment</h4>
-                        <p class="text-muted">Smooth fine lines</p>
-                    </div>
-                    <div class="card comparison-item">
-                        <div class="comparison-slider">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%231a1a2e' width='400' height='200'/%3E%3C/svg%3E" alt="Before" class="comparison-image comparison-after">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%232d2d4a' width='400' height='200'/%3E%3C/svg%3E" alt="After" class="comparison-image comparison-before">
-                            <div class="comparison-handle"></div>
+                        <div class="gallery-support-tile animate-on-scroll delay-2">
+                            <div class="gallery-support-placeholder">
+                                <div class="placeholder-accent">✦</div>
+                                <span class="placeholder-label">Consultation</span>
+                            </div>
+                            <div class="tile-caption">
+                                <h3>Personal Consultations</h3>
+                                <p>Tailored to your needs</p>
+                            </div>
                         </div>
-                        <h4 style="margin-top: 1rem;">Laser Treatment</h4>
-                        <p class="text-muted">Even skin tone</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-padding">
+        <!-- ====== 3. BEFORE & AFTER ====== -->
+        <section id="before-after" class="section-padding">
             <div class="container">
-                <h2 class="section-title">Transformations</h2>
-                <div class="grid-3">
-                    <div class="card animate-on-scroll"><div style="background: linear-gradient(135deg, var(--color-gold-dark), var(--color-bg-secondary)); height: 200px; border-radius: var(--radius-md); margin-bottom: 1rem;"></div><h3>Hydrafacial</h3><p class="text-muted">Before & After</p></div>
-                    <div class="card animate-on-scroll delay-1"><div style="background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-gold)); height: 200px; border-radius: var(--radius-md); margin-bottom: 1rem;"></div><h3>Dermal Fillers</h3><p class="text-muted">Before & After</p></div>
-                    <div class="card animate-on-scroll delay-2"><div style="background: linear-gradient(135deg, var(--color-gold), var(--color-bg-secondary)); height: 200px; border-radius: var(--radius-md); margin-bottom: 1rem;"></div><h3>Botox Treatment</h3><p class="text-muted">Before & After</p></div>
+                <div class="section-heading">
+                    <h2>Before & After</h2>
+                    <p>Real transformations from real clients — results vary by individual</p>
+                </div>
+
+                <div class="ba-featured-card animate-on-scroll"
+                     data-title="Anti-Aging Facial Treatment"
+                     data-desc="Comprehensive skin rejuvenation with visible results">
+                    <img src="assets/images/gallery/gallery-before-after1.png"
+                         alt="Anti-Aging Facial — before and after transformation"
+                         class="ba-featured-img"
+                         width="800" height="450"
+                         loading="lazy">
+                    <div class="ba-featured-caption">
+                        <span class="ba-featured-badge">Before · After</span>
+                    </div>
+                </div>
+                <div class="ba-featured-meta animate-on-scroll delay-1">
+                    <h4>Anti-Aging Facial Treatment</h4>
+                    <p class="text-muted">Comprehensive skin rejuvenation with visible results</p>
+                </div>
+
+                <div class="ba-grid" style="margin-top: 3rem;">
+                    <div class="ba-card animate-on-scroll delay-1">
+                        <div class="ba-image">
+                            <div class="ba-placeholder">
+                                <div class="ba-icon">✦</div>
+                                <span class="ba-label">Before & After</span>
+                            </div>
+                        </div>
+                        <div class="ba-content">
+                            <h3>Dermal Fillers</h3>
+                            <p>Natural volume restoration — subtle, elegant enhancement</p>
+                        </div>
+                    </div>
+                    <div class="ba-card animate-on-scroll delay-2">
+                        <div class="ba-image">
+                            <div class="ba-placeholder">
+                                <div class="ba-icon">✦</div>
+                                <span class="ba-label">Before & After</span>
+                            </div>
+                        </div>
+                        <div class="ba-content">
+                            <h3>Botox Treatment</h3>
+                            <p>Smooth fine lines — refreshed, natural expression</p>
+                        </div>
+                    </div>
+                    <div class="ba-card animate-on-scroll delay-3">
+                        <div class="ba-image">
+                            <div class="ba-placeholder">
+                                <div class="ba-icon">✦</div>
+                                <span class="ba-label">Before & After</span>
+                            </div>
+                        </div>
+                        <div class="ba-content">
+                            <h3>Laser Treatment</h3>
+                            <p>Even skin tone — clarity and radiance restored</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 4. VIDEO TESTIMONIALS ====== -->
+        <section id="video-testimonials" class="section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Video Testimonials</h2>
+                    <p>Hear directly from our clients about their Cosmo experience</p>
+                </div>
+                <div class="video-card-grid">
+                    <div class="video-card animate-on-scroll" data-video="" data-video-src="assets/videos/testimonial1.mp4">
+                        <div class="video-card-image">
+                            <video class="video-player" preload="metadata" muted playsinline>
+                                <source src="assets/videos/testimonial1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-placeholder-icon">✦</div>
+                            <div class="video-play-btn"></div>
+                            <span class="video-label">Sarah's Journey</span>
+                            <span class="video-sub">Anti-Aging Facial</span>
+                        </div>
+                    </div>
+                    <div class="video-card animate-on-scroll delay-1" data-video="">
+                        <div class="video-card-image">
+                            <div class="video-placeholder-icon">✦</div>
+                            <div class="video-play-btn"></div>
+                            <span class="video-label">James on Botox</span>
+                            <span class="video-sub">Anti-Wrinkle Treatment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 5. CLIENT REVIEWS PREVIEW ====== -->
+        <section id="client-reviews" class="section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>What Our Clients Say</h2>
+                    <p>Trusted by hundreds of patients across London</p>
+                </div>
+                <div class="review-preview-grid">
+                    <div class="review-preview-card animate-on-scroll">
+                        <div class="review-preview-stars">★★★★★</div>
+                        <blockquote>"I've tried many clinics over the years, but Cosmo is truly exceptional. Dr. Rivera took the time to understand my concerns and created a personalised treatment plan."</blockquote>
+                        <div class="review-preview-author">
+                            <strong>Sarah J.</strong>
+                            <span>LED Light Therapy · Verified Patient</span>
+                        </div>
+                    </div>
+                    <div class="review-preview-card animate-on-scroll delay-1">
+                        <div class="review-preview-stars">★★★★★</div>
+                        <blockquote>"From the moment I walked in, I felt welcomed. The facility is immaculate and the staff is incredibly professional. My Botox results are natural-looking — exactly what I wanted."</blockquote>
+                        <div class="review-preview-author">
+                            <strong>Michael C.</strong>
+                            <span>Botox Treatment · Verified Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-cta animate-on-scroll delay-2">
+                    <p>Read more from our patients — 4.9 stars from 127 verified reviews</p>
+                    <a href="testimonials.html" class="btn btn-outline">View All Reviews</a>
                 </div>
             </div>
         </section>
     </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col"><div class="footer-logo"><span class="logo-text">✦ COSMO</span><span class="logo-sub">Skin Clinic</span></div><p>Premium dermatology care.</p></div>
-                <div class="footer-col"><h4>Treatments</h4><ul><li><a href="treatments.html">Facial</a></li><li><a href="treatments.html">Injectables</a></li></ul></div>
-                <div class="footer-col"><h4>Links</h4><ul><li><a href="about-doctor.html">Doctor</a></li><li><a href="testimonials.html">Reviews</a></li></ul></div>
+                <div class="footer-col"><h4>Treatments</h4><ul><li><a href="treatments.html">Facial</a></li><li><a href="treatments.html">Body</a></li></ul></div>
+                <div class="footer-col"><h4>Links</h4><ul><li><a href="about-doctor.html">Doctor</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
                 <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="book-appointment.html">Book</a></li></ul></div>
             </div>
             <div class="footer-divider"></div>
             <div class="footer-bottom"><p>&copy; 2024 Cosmo Skin Clinic. All rights reserved.</p></div>
         </div>
     </footer>
-    <div class="floating-action-bar">
-        <button class="fab-btn whatsapp">💬<span class="tooltip">WhatsApp</span></button>
-        <button class="fab-btn call">📞<span class="tooltip">Call Us</span></button>
-        <button class="fab-btn appointment">📅<span class="tooltip">Book Now</span></button>
-    </div>
     <script src="js/main.js"></script>
-    <script src="js/comparison.js"></script>
+
     <script src="js/gallery.js"></script>
 </body>
 </html>

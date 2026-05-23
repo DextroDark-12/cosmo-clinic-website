@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- =============================================
+         BLOG POST META - REPLACE PER ARTICLE
+         ============================================= -->
+    <title><!-- BLOG_TITLE --> | Cosmo Skin Clinic</title>
+    <meta name="description" content="<!-- BLOG_META_DESCRIPTION -->">
+    <meta name="keywords" content="<!-- BLOG_KEYWORDS -->">
+    <link rel="canonical" href="https://cosmoskinclinic.com/blog/<!-- BLOG_SLUG -->.html">
+    <!-- ============================================= -->
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://cosmoskinclinic.com/blog/<!-- BLOG_SLUG -->.html">
+    <meta property="og:title" content="<!-- BLOG_TITLE --> | Cosmo Skin Clinic">
+    <meta property="og:description" content="<!-- BLOG_META_DESCRIPTION -->">
+    <meta property="og:image" content="<!-- BLOG_OG_IMAGE_URL -->">
+    <meta property="article:published_time" content="<!-- BLOG_PUBLISHED_DATE -->">
+    <meta property="article:author" content="Dr. Alexandra Rivera">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<!-- BLOG_TITLE --> | Cosmo Skin Clinic">
+    <meta name="twitter:description" content="<!-- BLOG_META_DESCRIPTION -->">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "<!-- BLOG_TITLE -->",
+      "author": {
+        "@type": "Person",
+        "name": "Dr. Alexandra Rivera"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "Cosmo Skin Clinic"
+      },
+      "datePublished": "<!-- BLOG_PUBLISHED_DATE -->",
+      "url": "https://cosmoskinclinic.com/blog/<!-- BLOG_SLUG -->.html"
+    }
+    </script>
+</head>
+<body>
+    <!-- =============================================
+         NAVIGATION - Standard global navbar
+         Active state: Blog link active
+         ============================================= -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-logo">
+                <span class="logo-text">✦ COSMO</span>
+                <span class="logo-sub">Skin Clinic</span>
+            </a>
+            <div class="navbar-nav">
+                <a href="../index.html">Home</a>
+                <div class="dropdown about-dropdown">
+                    <a href="#">About</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../about/doctor.html">Our Doctor</a></li>
+                            <li><a href="../about/clinic.html">Our Clinic</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown treatments-dropdown">
+                    <a href="../treatments/index.html">Treatments</a>
+                    <div class="dropdown-menu">
+                        <div>
+                            <div class="col-title">Skin Treatments</div>
+                            <ul>
+                                <li><a href="../treatments/anti-aging.html">Anti Aging</a></li>
+                                <li><a href="../treatments/hydrafacial.html">Hydrafacial</a></li>
+                                <li><a href="../treatments/botox.html">Botox</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="col-title">Body & Hair</div>
+                            <ul>
+                                <li><a href="../treatments/laser-hair-removal.html">Laser Hair Removal</a></li>
+                                <li><a href="../treatments/body-contouring.html">Body Contouring</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown conditions-dropdown">
+                    <a href="../conditions/index.html">Conditions</a>
+                    <div class="dropdown-menu">
+                        <div>
+                            <div class="col-title">Skin Concerns</div>
+                            <ul>
+                                <li><a href="../conditions/acne.html">Acne & Scars</a></li>
+                                <li><a href="../conditions/pigmentation.html">Pigmentation</a></li>
+                                <li><a href="../conditions/aging-skin.html">Aging Skin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown gallery-dropdown">
+                    <a href="../gallery/index.html">Gallery</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../gallery/before-after.html">Before & After</a></li>
+                            <li><a href="../gallery/transformations.html">Transformations</a></li>
+                            <li><a href="../gallery/reviews.html">Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="index.html" class="active">Blog</a>
+                <a href="../faq.html">FAQ</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+            <a href="../book-appointment.html" class="btn btn-primary btn-book">Book Appointment</a>
+            <button class="mobile-toggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu" role="dialog" aria-hidden="true"></div>
+
+    <main>
+        <!-- =============================================
+             SECTION 1: BLOG HERO
+             ============================================= -->
+        <section class="hero hero-compact">
+            <div class="hero-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span>›</span>
+                    <a href="index.html">Blog</a>
+                    <span>›</span>
+                    <span><!-- BLOG_CATEGORY --></span>
+                </nav>
+                <div class="gold-line"></div>
+                <div class="blog-meta">
+                    <span class="blog-category"><!-- BLOG_CATEGORY --></span>
+                    <span class="blog-date"><!-- BLOG_DATE --></span>
+                    <span class="blog-read-time"><!-- BLOG_READ_TIME --></span>
+                </div>
+                <h1><!-- BLOG_TITLE --></h1>
+                <p class="blog-subtitle"><!-- BLOG_SUBTITLE --></p>
+                <div class="blog-author">
+                    <div class="author-avatar"></div>
+                    <div>
+                        <strong>Dr. Alexandra Rivera</strong>
+                        <span>Board-Certified Dermatologist</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 2: FEATURED IMAGE
+             ============================================= -->
+        <section class="blog-featured-image">
+            <div class="container">
+                <img src="<!-- BLOG_FEATURED_IMAGE -->" alt="<!-- BLOG_TITLE -->" class="featured-img">
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 3: ARTICLE CONTENT
+             ============================================= -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="blog-layout">
+                    <article class="blog-content">
+                        <!-- INTRO_PARAGRAPH -->
+                        <p class="lead"><!-- BLOG_INTRO --></p>
+
+                        <!-- HEADING_2_LEVEL_SECTION_1 -->
+                        <h2><!-- BLOG_SECTION_1_HEADING --></h2>
+                        <p><!-- BLOG_SECTION_1_CONTENT --></p>
+
+                        <!-- HEADING_2_LEVEL_SECTION_2 -->
+                        <h2><!-- BLOG_SECTION_2_HEADING --></h2>
+                        <p><!-- BLOG_SECTION_2_CONTENT --></p>
+
+                        <!-- QUOTE_OR_CALLOUT -->
+                        <blockquote class="blog-quote">
+                            <p>"<!-- EXPERT_INSIGHT_QUOTE -->"</p>
+                            <cite>— Dr. Alexandra Rivera</cite>
+                        </blockquote>
+
+                        <!-- HEADING_2_LEVEL_SECTION_3 -->
+                        <h2><!-- BLOG_SECTION_3_HEADING --></h2>
+                        <p><!-- BLOG_SECTION_3_CONTENT --></p>
+
+                        <!-- KEY_TIPS_LIST -->
+                        <h3><!-- KEY_TIPS_HEADING --></h3>
+                        <ul class="tips-list">
+                            <li>✦ <!-- TIP_1 --></li>
+                            <li>✦ <!-- TIP_2 --></li>
+                            <li>✦ <!-- TIP_3 --></li>
+                            <li>✦ <!-- TIP_4 --></li>
+                        </ul>
+
+                        <!-- HEADING_2_LEVEL_SECTION_4 -->
+                        <h2><!-- BLOG_SECTION_4_HEADING --></h2>
+                        <p><!-- BLOG_SECTION_4_CONTENT --></p>
+
+                        <!-- CONCLUSION -->
+                        <h2>Final Thoughts</h2>
+                        <p><!-- BLOG_CONCLUSION --></p>
+
+                        <!-- TREATMENT_RECOMMENDATION_CTA -->
+                        <div class="inline-cta">
+                            <p><strong>Ready to address your skin concerns?</strong></p>
+                            <a href="../book-appointment.html" class="btn btn-primary">Book a Consultation</a>
+                        </div>
+                    </article>
+
+                    <!-- SIDEBAR -->
+                    <aside class="blog-sidebar">
+                        <!-- SIDEBAR_WIDGET_1: APPOINTMENT_CTA -->
+                        <div class="sidebar-card">
+                            <h4>Book an Appointment</h4>
+                            <p>Ready to transform your skin? Schedule a consultation with Dr. Rivera.</p>
+                            <a href="../book-appointment.html" class="btn btn-primary btn-full">Book Now</a>
+                        </div>
+
+                        <!-- SIDEBAR_WIDGET_2: RELATED_TREATMENTS -->
+                        <div class="sidebar-card">
+                            <h4>Related Treatments</h4>
+                            <ul class="sidebar-links">
+                                <li><a href="../treatments/<!-- RELATED_TREATMENT_1_SLUG -->.html">✦ <!-- RELATED_TREATMENT_1_NAME --></a></li>
+                                <li><a href="../treatments/<!-- RELATED_TREATMENT_2_SLUG -->.html">✦ <!-- RELATED_TREATMENT_2_NAME --></a></li>
+                                <li><a href="../treatments/<!-- RELATED_TREATMENT_3_SLUG -->.html">✦ <!-- RELATED_TREATMENT_3_NAME --></a></li>
+                            </ul>
+                        </div>
+
+                        <!-- SIDEBAR_WIDGET_3: SHARE -->
+                        <div class="sidebar-card">
+                            <h4>Share This Article</h4>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn">Facebook</a>
+                                <a href="#" class="share-btn">Twitter</a>
+                                <a href="#" class="share-btn">LinkedIn</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 4: RELATED ARTICLES
+             ============================================= -->
+        <section class="section-padding section-alt">
+            <div class="container">
+                <h2 class="section-title">More from Our Blog</h2>
+                <div class="grid-3">
+                    <!-- RELATED_POST_1 -->
+                    <div class="blog-card animate-on-scroll">
+                        <img src="<!-- RELATED_POST_1_IMAGE -->" alt="<!-- RELATED_POST_1_TITLE -->">
+                        <div class="blog-card-content">
+                            <span class="blog-category"><!-- RELATED_POST_1_CATEGORY --></span>
+                            <h3><a href="<!-- RELATED_POST_1_SLUG -->.html"><!-- RELATED_POST_1_TITLE --></a></h3>
+                            <p class="text-muted"><!-- RELATED_POST_1_EXCERPT --></p>
+                            <a href="<!-- RELATED_POST_1_SLUG -->.html" class="learn-more">Read More →</a>
+                        </div>
+                    </div>
+                    <!-- RELATED_POST_2 -->
+                    <div class="blog-card animate-on-scroll delay-1">
+                        <img src="<!-- RELATED_POST_2_IMAGE -->" alt="<!-- RELATED_POST_2_TITLE -->">
+                        <div class="blog-card-content">
+                            <span class="blog-category"><!-- RELATED_POST_2_CATEGORY --></span>
+                            <h3><a href="<!-- RELATED_POST_2_SLUG -->.html"><!-- RELATED_POST_2_TITLE --></a></h3>
+                            <p class="text-muted"><!-- RELATED_POST_2_EXCERPT --></p>
+                            <a href="<!-- RELATED_POST_2_SLUG -->.html" class="learn-more">Read More →</a>
+                        </div>
+                    </div>
+                    <!-- RELATED_POST_3 -->
+                    <div class="blog-card animate-on-scroll delay-2">
+                        <img src="<!-- RELATED_POST_3_IMAGE -->" alt="<!-- RELATED_POST_3_TITLE -->">
+                        <div class="blog-card-content">
+                            <span class="blog-category"><!-- RELATED_POST_3_CATEGORY --></span>
+                            <h3><a href="<!-- RELATED_POST_3_SLUG -->.html"><!-- RELATED_POST_3_TITLE --></a></h3>
+                            <p class="text-muted"><!-- RELATED_POST_3_EXCERPT --></p>
+                            <a href="<!-- RELATED_POST_3_SLUG -->.html" class="learn-more">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             SECTION 5: CTA
+             ============================================= -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Have Questions About Your Skin?</h2>
+                    <p>Dr. Rivera and our team are here to help. Schedule a consultation for personalized advice.</p>
+                    <div class="cta-buttons">
+                        <a href="../book-appointment.html" class="btn btn-primary btn-large">Book Consultation</a>
+                        <a href="index.html" class="btn btn-outline">Read More Articles</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =============================================
+         FOOTER - Standard global footer
+         ============================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-text">✦ COSMO</span>
+                        <span class="logo-sub">Skin Clinic</span>
+                    </div>
+                    <p>Premium dermatology care for radiant, healthy skin.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Treatments</h4>
+                    <ul>
+                        <li><a href="../treatments/anti-aging.html">Anti Aging</a></li>
+                        <li><a href="../treatments/hydrafacial.html">Hydrafacial</a></li>
+                        <li><a href="../treatments/botox.html">Botox</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../about/doctor.html">About Doctor</a></li>
+                        <li><a href="../gallery/index.html">Gallery</a></li>
+                        <li><a href="index.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="../contact.html">Get in Touch</a></li>
+                        <li><a href="../book-appointment.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cosmo Skin Clinic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Bar -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
