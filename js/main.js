@@ -8,7 +8,6 @@
     initSmoothScroll();
     initLazyImages();
     initWhatsAppFloat();
-    initContactForm();
   });
 
   function initNavbar() {
@@ -278,40 +277,6 @@
         img.classList.add('loaded');
       });
     }
-  }
-
-  function initContactForm() {
-    const contactForm = document.querySelector('.contact-form');
-    if (!contactForm) return;
-
-    // Skip if form-handler.js has already initialized this form
-    if (contactForm.hasAttribute('data-form-handler-initialized')) {
-      console.log('[main.js] Contact form already handled by form-handler.js, skipping.');
-      return;
-    }
-
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const formData = new FormData(contactForm);
-      const data = Object.fromEntries(formData.entries());
-
-      // Submit lead to the n8n webhook (sends WhatsApp notification via Twilio)
-      if (typeof window.submitLeadWithFeedback === 'function') {
-        window.submitLeadWithFeedback(data, {
-          onSuccess: function () {
-            contactForm.reset();
-          }
-        });
-      } else {
-        // Fallback if lead-submission.js hasn't loaded
-        console.log('Contact form submitted:', data);
-        if (window.showToast) {
-          showToast('Message sent successfully. We will respond within 24 hours.', 'success');
-        }
-        contactForm.reset();
-      }
-    });
   }
 
   function initWhatsAppFloat() {

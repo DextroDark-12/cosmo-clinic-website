@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhook Isolation Test — Cosmo Skin Clinic</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #0d0d1a;
+            color: #e8e8f0;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-size: 15px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .test-container {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        h1 {
+            font-size: 18px;
+            color: #c9a96e;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .meta {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            background: #13132a;
+            border: 1px solid rgba(201, 169, 110, 0.25);
+            color: #e8e8f0;
+            font-family: inherit;
+            font-size: 14px;
+            padding: 10px 14px;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #c9a96e;
+        }
+
+        select option {
+            background: #13132a;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            margin-top: 8px;
+            padding: 12px;
+            background: #c9a96e;
+            color: #0d0d1a;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            opacity: 0.88;
+        }
+
+        button[type="submit"]:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .debug-note {
+            margin-top: 20px;
+            font-size: 11px;
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="test-container">
+
+        <h1>Webhook Isolation Test</h1>
+        <p class="meta">
+            Loads: <code>js/form-handler.js</code> only.<br>
+            No navbar · No main.js · No booking.js · No lead-submission.js
+        </p>
+
+        <form id="bookingForm" novalidate>
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000">
+            </div>
+
+            <div class="form-group">
+                <label for="treatment">Treatment</label>
+                <select id="treatment" name="treatment">
+                    <option value="">Select a treatment</option>
+                    <option value="HydraFacial">HydraFacial</option>
+                    <option value="Microneedling">Microneedling</option>
+                    <option value="Chemical Peel">Chemical Peel</option>
+                    <option value="Botox">Botox</option>
+                    <option value="Dermal Fillers">Dermal Fillers</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Any questions or additional info…"></textarea>
+            </div>
+
+            <button type="submit">Send Test Submission</button>
+
+        </form>
+
+        <p class="debug-note">
+            Open DevTools → Console to verify:<br>
+            [FormHandler] Form #1 initialized: bookingForm<br>
+            [FormHandler] Submitting payload: {…}<br>
+            [FormHandler] Response received: 200
+        </p>
+
+    </div>
+
+    <!-- ONLY this script — no other JS -->
+    <script src="js/form-handler.js"></script>
+
+</body>
+</html>
