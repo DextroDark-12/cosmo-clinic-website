@@ -133,13 +133,31 @@
 .hero-right {
   position: relative;
   height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: #15151e;
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.hero-condition-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.4s ease;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .hero-right:hover .hero-condition-image {
+    transform: scale(1.03);
+    filter: brightness(1.04);
+  }
 }
 
 .hero-image-placeholder {
@@ -163,6 +181,7 @@
   border: 1px solid rgba(201,169,110,0.08);
   border-radius: var(--radius-md);
   pointer-events: none;
+  z-index: 1;
 }
 
 /* ─── OVERVIEW ─── */
@@ -616,6 +635,163 @@
   max-width: 90%;
 }
 
+/* ─── INTELLIGENCE LAYER — Pigmentation Prototype ─── */
+/* Priority badge for treatment hierarchy */
+.priority-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-accent);
+  background: rgba(201, 169, 110, 0.08);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+/* Who This Helps Most — compact editorial card */
+.who-helps-card {
+  background: linear-gradient(135deg, rgba(201, 169, 110, 0.04), transparent);
+  border: 1px solid rgba(201, 169, 110, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 2rem;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+.who-helps-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--gold-accent);
+  border-radius: 2px;
+}
+
+.who-helps-card h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-accent);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.who-helps-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
+}
+
+.who-helps-card li {
+  font-size: 0.9rem;
+  color: #e2d9ca;
+  opacity: 0.7;
+  padding: 0.4rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.who-helps-card li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--gold-accent);
+  font-size: 0.6rem;
+  top: 0.55rem;
+}
+
+/* Session expectation — calm realism block */
+.session-expectation {
+  max-width: 700px;
+  margin: 3rem auto 0;
+  padding: 2rem;
+  background: rgba(201, 169, 110, 0.03);
+  border: 1px solid rgba(201, 169, 110, 0.08);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.session-expectation p {
+  font-size: 0.95rem;
+  color: #aba6a0;
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.session-expectation p::before {
+  content: '\201C';
+  color: var(--gold-accent);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-right: 0.25rem;
+  opacity: 0.6;
+}
+
+.session-expectation p::after {
+  content: '\201D';
+  color: var(--gold-accent);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+  opacity: 0.6;
+}
+
+/* Recovery note — editorial downtime guidance */
+.recovery-note {
+  background: rgba(201, 169, 110, 0.03);
+  border: 1px solid rgba(201, 169, 110, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.recovery-note p {
+  font-size: 0.85rem;
+  color: #aba6a0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.recovery-note p + p {
+  margin-top: 0.75rem;
+}
+
+/* Responsive for who-helps card */
+@media (max-width: 600px) {
+  .who-helps-card ul {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-right {
+    height: 180px;
+  }
+
+  .hero-inner {
+    gap: 0.5rem;
+  }
+
+  .hero-left .breadcrumb {
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-left h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.25rem;
+  }
+}
+
 /* ─── CTA BANNER REFINED ─── */
 .section-cta {
   padding: 6rem 2rem;
@@ -694,17 +870,26 @@
 @media (max-width: 1024px) {
   .hero-inner {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
     text-align: center;
   }
 
   .hero-right {
-    height: 300px;
+    height: 220px;
     order: -1;
+  }
+
+  .hero-condition-image {
+    object-position: center 25%;
   }
 
   .hero-left .breadcrumb {
     justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .hero-left h1 {
+    margin-bottom: 0.75rem;
   }
 
   .hero-ctas {
@@ -774,6 +959,101 @@
 
   .image-group {
     height: 350px;
+  }
+}
+
+/* ─── CONDITION LIGHTBOX — Editorial fullscreen ─── */
+.condition-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.32s ease, visibility 0.32s ease;
+  padding: 2rem;
+}
+
+.condition-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.condition-lightbox-content {
+  position: relative;
+  max-width: 900px;
+  max-height: 90vh;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.condition-lightbox.active .condition-lightbox-content {
+  transform: scale(1);
+}
+
+.condition-lightbox-content img {
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+}
+
+.condition-lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(13, 13, 26, 0.6);
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  color: var(--color-white);
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 2001;
+  line-height: 1;
+  padding: 0;
+  backdrop-filter: blur(4px);
+}
+
+.condition-lightbox-close:hover {
+  background: rgba(201, 169, 110, 0.15);
+  transform: scale(1.06);
+}
+
+@media (max-width: 600px) {
+  .condition-lightbox {
+    padding: 0;
+  }
+
+  .condition-lightbox-content {
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .condition-lightbox-content img {
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .condition-lightbox-close {
+    top: 0.75rem;
+    right: 0.75rem;
   }
 }
 

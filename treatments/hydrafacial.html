@@ -169,10 +169,10 @@
                     <a href="../gallery.html">Gallery</a>
                     <div class="dropdown-menu">
                         <ul>
-                            <li><a href="../gallery.html">Clinic Gallery</a></li>
-                            <li><a href="../gallery.html">Before & After</a></li>
-                            <li><a href="../testimonials.html">Video Testimonials</a></li>
-                            <li><a href="../testimonials.html">Reviews</a></li>
+                            <li><a href="../gallery.html#clinic-gallery">Clinic Gallery</a></li>
+                            <li><a href="../gallery.html#before-after">Before & After</a></li>
+                            <li><a href="../gallery.html#video-testimonials">Video Testimonials</a></li>
+                            <li><a href="../gallery.html#client-reviews">Client Reviews</a></li>
                         </ul>
                     </div>
                 </div>
@@ -293,10 +293,10 @@
                     <span class="panel-title">Gallery</span>
                 </div>
                 <ul class="mobile-nav-list">
-                    <li><a href="../gallery.html">Clinic Gallery</a></li>
-                    <li><a href="../gallery.html">Before & After</a></li>
-                    <li><a href="../testimonials.html">Video Testimonials</a></li>
-                    <li><a href="../testimonials.html">Reviews</a></li>
+                    <li><a href="../gallery.html#clinic-gallery">Clinic Gallery</a></li>
+                    <li><a href="../gallery.html#before-after">Before & After</a></li>
+                    <li><a href="../gallery.html#video-testimonials">Video Testimonials</a></li>
+                    <li><a href="../gallery.html#client-reviews">Client Reviews</a></li>
                 </ul>
             </div>
         </nav>
@@ -335,10 +335,11 @@
                 <div class="overview-layout">
                     <div class="overview-image animate-on-scroll">
                         <div class="treatment-collage">
-                            <div class="collage-placeholder">
-                                <div class="placeholder-accent">✦</div>
-                                <span>Clinic Atmosphere</span>
-                            </div>
+                            <img src="../assets/images/treatments/hydrafacial-hero.webp"
+                                 alt="HydraFacial treatment — medical-grade skin rejuvenation"
+                                 class="collage-img"
+                                 width="836" height="470"
+                                 loading="lazy">
                             <div class="collage-placeholder">
                                 <div class="placeholder-accent">✦</div>
                                 <span>Treatment Detail</span>
@@ -656,8 +657,69 @@
         </div>
     </footer>
 
+    <!-- Lightbox for real treatment media -->
+    <div class="treatment-lightbox" id="treatmentLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="treatment-lightbox-content">
+            <button class="treatment-lightbox-close" id="lightboxClose" aria-label="Close fullscreen view">✕</button>
+            <img src="" alt="" id="lightboxImage">
+        </div>
+    </div>
+
     <script src="../js/main.js"></script>
     <script src="../js/faq.js"></script>
     <script src="../js/comparison.js"></script>
+    <script>
+        // Lightbox: quiet editorial fullscreen for real treatment media
+        void function() {
+            var lightbox = document.getElementById('treatmentLightbox');
+            var lightboxImg = document.getElementById('lightboxImage');
+            var closeBtn = document.getElementById('lightboxClose');
+
+            if (!lightbox || !lightboxImg || !closeBtn) return;
+
+            function openLightbox(src, alt) {
+                lightboxImg.src = src;
+                lightboxImg.alt = alt || '';
+                lightbox.setAttribute('aria-hidden', 'false');
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                // Move focus to close button for keyboard accessibility
+                setTimeout(function() { closeBtn.focus(); }, 50);
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            // Attach click handler to real treatment image
+            var realImage = document.querySelector('.collage-img');
+            if (realImage) {
+                realImage.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openLightbox(this.src, this.alt);
+                });
+                realImage.style.cursor = 'pointer';
+            }
+
+            // Close on button click
+            closeBtn.addEventListener('click', closeLightbox);
+
+            // Close on overlay click (click outside content)
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+        }();
+    </script>
 </body>
 </html>

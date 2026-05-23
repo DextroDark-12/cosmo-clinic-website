@@ -154,7 +154,7 @@
       }
     });
 
-    // Panel navigation (submenu clicks)
+    // Panel navigation (submenu clicks, back buttons, regular links)
     navContainer.addEventListener('click', function(e) {
       // Handle submenu links
       const submenuLink = e.target.closest('.has-submenu');
@@ -172,6 +172,42 @@
       if (backButton) {
         e.preventDefault();
         goBack();
+        return;
+      }
+
+      // Handle regular nav links — close menu before navigation
+      const navLink = e.target.closest('.mobile-nav-list a');
+      if (navLink) {
+        const href = navLink.getAttribute('href');
+        if (href && href !== '#') {
+          e.preventDefault();
+
+          const hasHash = href.indexOf('#') !== -1;
+          const pagePart = hasHash ? href.split('#')[0] : href;
+          const hashPart = hasHash ? '#' + href.split('#')[1] : '';
+          const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+          if (hasHash && (!pagePart || pagePart === currentPage)) {
+            // Same-page hash navigation
+            closeMenu();
+            setTimeout(function() {
+              var target = document.querySelector(hashPart);
+              if (target) {
+                var headerHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
+                window.scrollTo({
+                  top: target.getBoundingClientRect().top + window.pageYOffset - headerHeight,
+                  behavior: 'smooth'
+                });
+              }
+            }, 360);
+          } else {
+            // Cross-page navigation
+            closeMenu();
+            setTimeout(function() {
+              window.location.href = href;
+            }, 300);
+          }
+        }
         return;
       }
     });
