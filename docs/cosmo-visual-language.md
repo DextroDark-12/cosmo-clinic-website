@@ -173,7 +173,7 @@ Human presence should feel contextual, not performative. The patient is never th
 
 ### The Doctor
 
-When Dr. Alexandra Rivera appears in imagery, the tone should be: **approachable expertise** — clinical authority softened by warm, attentive presence. Not distant, not overly casual.
+When Dr. Priya Dewani appears in imagery, the tone should be: **approachable expertise** — clinical authority softened by warm, attentive presence. Not distant, not overly casual.
 
 ---
 

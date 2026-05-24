@@ -109,7 +109,7 @@ Texture should be **visible, not smoothed away**. This is not an airbrushed trea
 - **Patient** appears only as partial presence: profile silhouette, neck/chin area, hand gripping armrest
 - **No full patient faces** during treatment — the procedure is the subject, not the person
 - **No eye contact** — the patient's eyes are closed or outside the frame
-- **Dr. Rivera** may appear in the treatment context with warm, focused expression — not smiling, but present and attentive
+- **Dr. Dewani** may appear in the treatment context with warm, focused expression — not smiling, but present and attentive
 
 ### Mobile Crop Priorities
 
@@ -248,7 +248,7 @@ Texture should feel **fresh and alive** — skin that breathes and reflects ligh
 - **Eyes must be closed** — open eyes break the meditative mood
 - **Practitioner's hands** are gentle, holding the handpiece with care — firm but soft
 - **No influencer expressions** — no smiling, no "omg this feels amazing" faces
-- **Dr. Rivera** can appear in gentle consultation context or performing the treatment with warm, attentive presence
+- **Dr. Dewani** can appear in gentle consultation context or performing the treatment with warm, attentive presence
 
 ### Mobile Crop Priorities
 
@@ -390,7 +390,7 @@ Texture should communicate **controlled change** — the skin is transitioning f
 - **Eye protection** is visible — the goggles add a clinical touch that reinforces medical credibility
 - **Patient's eyes** may be visible during pre-treatment consultation but not during application
 - **No expressions of discomfort** — the patient should appear calm and relaxed throughout
-- **Dr. Rivera** can appear in the consultation context (warm, attentive, discussing options) or application context (focused, precise)
+- **Dr. Dewani** can appear in the consultation context (warm, attentive, discussing options) or application context (focused, precise)
 
 ### Mobile Crop Priorities
 
