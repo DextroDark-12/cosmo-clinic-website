@@ -144,6 +144,7 @@
             email: (formData.get('email') || '').toString().trim(),
             phone: (formData.get('phone') || '').toString().trim(),
             treatment: (formData.get('treatment') || '').toString().trim(),
+            date: (formData.get('date') || '').toString().trim(),
             message: (formData.get('message') || '').toString().trim(),
             page: window.location.href,
             timestamp: new Date().toISOString()
