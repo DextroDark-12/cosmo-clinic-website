@@ -8,7 +8,6 @@
     initSmoothScroll();
     initLazyImages();
     initWhatsAppFloat();
-    initContactForm();
   });
 
   function initNavbar() {
@@ -278,26 +277,6 @@
         img.classList.add('loaded');
       });
     }
-  }
-
-  function initContactForm() {
-    const contactForm = document.querySelector('.contact-form');
-    if (!contactForm) return;
-
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const formData = new FormData(contactForm);
-      const data = Object.fromEntries(formData.entries());
-
-      console.log('Contact form submitted:', data);
-
-      if (window.showToast) {
-        showToast('Message sent successfully. We will respond within 24 hours.', 'success');
-      }
-
-      contactForm.reset();
-    });
   }
 
   function initWhatsAppFloat() {
