@@ -339,7 +339,7 @@
                     </div>
 
                     <div class="booking-form-card">
-                        <form class="booking-form" id="bookingForm">
+                        <form class="booking-form" id="bookingForm" novalidate>
                             <h3>Request an Appointment</h3>
                             <p class="form-note">Fill in your details and we'll contact you to confirm your appointment.</p>
 
@@ -465,5 +465,53 @@
     <script src="js/form-handler.js"></script>
     <!-- Keep main.js for navbar/mobile menu functionality -->
     <script src="js/main.js"></script>
+
+    <!-- FORENSIC INSTRUMENTATION — TEMPORARY — REMOVE AFTER VERIFICATION -->
+    <script>
+    (function() {
+      var form = document.getElementById('bookingForm');
+      if (!form) {
+        console.error('[FORENSIC] #bookingForm NOT FOUND IN DOM');
+        return;
+      }
+
+      // 1. Verify initialization attribute
+      console.log('[FORENSIC] data-form-handler-initialized:', form.getAttribute('data-form-handler-initialized'));
+
+      // 2. Verify action/method stripped
+      console.log('[FORENSIC] action attr:', form.getAttribute('action'), '| method attr:', form.getAttribute('method'));
+
+      // 3. Verify onsubmit cleared
+      console.log('[FORENSIC] onsubmit:', form.onsubmit);
+
+      // 4. Verify form.submit() is overridden
+      var origSubmit = HTMLFormElement.prototype.submit;
+      var currentSubmit = form.submit;
+      console.log('[FORENSIC] form.submit() overridden:', currentSubmit !== origSubmit);
+
+      // 5. Monitor attribute mutations
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+          console.warn('[FORENSIC] DOM mutation on form:', m.type, m.attributeName, m.oldValue, '->', form.getAttribute(m.attributeName));
+        });
+      });
+      observer.observe(form, { attributes: true, attributeOldValue: true });
+
+      // 6. Capture submit event lifecycle
+      form.addEventListener('submit', function(e) {
+        console.log('[FORENSIC] submit event fired | defaultPrevented:', e.defaultPrevented, '| eventPhase:', e.eventPhase);
+      }, true); // capture phase
+
+      // 7. Monitor button clicks
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) {
+        btn.addEventListener('click', function(e) {
+          console.log('[FORENSIC] submit button clicked | form action at click time:', form.getAttribute('action'));
+        }, true);
+      }
+
+      console.log('[FORENSIC] Instrumentation attached. Submit the form to see lifecycle logs.');
+    })();
+    </script>
 </body>
 </html>
