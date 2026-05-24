@@ -283,7 +283,7 @@
     // Add global floating WhatsApp button only if no existing FAB with WhatsApp
     if (document.querySelector('.whatsapp-float')) return;
     const whatsappBtn = document.createElement('a');
-    whatsappBtn.href = 'https://wa.me/15551234567';
+    whatsappBtn.href = 'https://wa.me/919924129537';
     whatsappBtn.target = '_blank';
     whatsappBtn.rel = 'noopener';
     whatsappBtn.className = 'whatsapp-float';
