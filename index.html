@@ -330,7 +330,11 @@
     <main>
         <section class="hero hero-home">
             <div class="hero-bg">
-                <img src="assets/images/homepage-hero.png" alt="" aria-hidden="true">
+                <img src="assets/images/homepage-hero.webp"
+             srcset="assets/images/homepage-hero-mobile.webp 768w, assets/images/homepage-hero.webp 1536w"
+             sizes="100vw"
+             alt="" aria-hidden="true"
+             loading="eager" fetchpriority="high">
             </div>
             <div class="hero-overlay"></div>
             <div class="container">
@@ -488,6 +492,9 @@
                     </div>
                 </div>
                 <p class="pricing-disclaimer">*Final pricing may vary depending on skin condition, treatment area, and personalized consultation.</p>
+                <div class="pricing-cta">
+                    <a href="treatments.html" class="btn btn-outline">View All Treatments →</a>
+                </div>
             </div>
         </section>
 
