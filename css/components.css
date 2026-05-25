@@ -613,6 +613,26 @@
   background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-gold-dark));
 }
 
+.doctor-card .doctor-info
+
+/* Homepage doctor image — replaces former inline styles */
+.doctor-image-home {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.doctor-card:hover .doctor-image-home {
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(201, 169, 110, 0.2);
+}
+
+
 .doctor-card .doctor-info {
   padding: 1.5rem;
 }
@@ -4782,6 +4802,23 @@ img[loading="lazy"].loaded {
   text-transform: uppercase;
   letter-spacing: 2px;
   opacity: 0.5;
+}
+
+/* Full-width image for real before/after image replacement */
+.transform-full-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.transform-card:hover .transform-full-img {
+  transform: scale(1.04);
+  filter: brightness(1.04);
 }
 
 /* Future image replacement — just swap the placeholder div for an img tag */
