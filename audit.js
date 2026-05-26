@@ -43,7 +43,7 @@ console.log('8. try/catch wrapping fetch:', js.includes('try {'));
 // ==================== LEAD SUBMISSION JS ====================
 console.log('\n--- JS AUDIT (js/lead-submission.js) ---');
 const ls = fs.readFileSync('js/lead-submission.js', 'utf8');
-console.log('1. submission URL:', ls.match(/WEBHOOK_URL\s*=\s*['"`]([^'`"`]+)/)?.[1] || 'NOT FOUND');
+console.log('1. submission URL:', (ls.match(/WEBHOOK_URL\s*=\s*['"`]([^'"`]+)/)||[])[1] || 'NOT FOUND');
 console.log('2. Exported on window:', ls.includes('window.submitLead'));
 
 // ==================== MAIN JS ====================
@@ -74,10 +74,8 @@ console.log('   - Handler start:', submitHandler.substring(0, 100));
 console.log('\n[SCENARIO D] Vercel deployment / caching');
 console.log('   - If old .html cached, new booking.js may not match');
 
-console.log('\n[SCENARIO E] CORS / mixed content issues');
-console.log('   - Page served via HTTPS (Vercel) -> fetch to HTTP ngrok');
-console.log('   - Modern browsers BLOCK mixed-content fetches');
-console.log('   - Check: is ngrok URL using HTTPS? URL says https:// -> OK');
+console.log('\n[SCENARIO E] CORS / mixed content issues');    console.log('   - Page served via HTTPS (Vercel) -> fetch to Railway (HTTPS)');
+console.log('   - Modern browsers BLOCK mixed-content fetches');    console.log('   - Check: is Railway webhook URL using HTTPS? URL says https:// -> OK');
 
 console.log('\n\n=== DIAGNOSTIC PLAN ===');
 console.log('1. Open DevTools -> Console, check for JS errors BEFORE submit');
