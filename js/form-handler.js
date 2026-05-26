@@ -21,7 +21,7 @@
     // ========================================================================
 
     /** Production webhook endpoint (n8n → Twilio WhatsApp pipeline) */
-    const WEBHOOK_URL = 'https://unmanaged-manor-boxing.ngrok-free.dev/webhook/clinic-lead';
+    const WEBHOOK_URL = 'https://n8n-railway-production-7c29.up.railway.app/webhook/clinic-lead';
 
     /** Form selectors to auto-initialize (in priority order) */
     const FORM_SELECTORS = [

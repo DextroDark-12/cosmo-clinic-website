@@ -7,7 +7,7 @@
     // identify exactly where the flow breaks (or if it breaks at all).
     // ========================================================================
 
-    var WEBHOOK_URL = 'https://unmanaged-manor-boxing.ngrok-free.dev/webhook/clinic-lead';
+    var WEBHOOK_URL = 'https://n8n-railway-production-7c29.up.railway.app/webhook/clinic-lead';
 
     document.addEventListener('DOMContentLoaded', function() {
         console.log('[Booking] DOM ready. Init form...');
