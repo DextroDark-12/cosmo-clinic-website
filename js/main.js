@@ -267,9 +267,24 @@
     if ('loading' in HTMLImageElement.prototype) {
       // Browser supports native lazy loading
       document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
+        // Handle cache-hit case: image already loaded before JS runs
+        if (img.complete && img.naturalWidth > 0) {
+          img.classList.add('loaded');
+          return;
+        }
         img.addEventListener('load', function() {
           img.classList.add('loaded');
         });
+        img.addEventListener('error', function() {
+          // Reveal broken images too rather than leaving them invisible
+          img.classList.add('loaded');
+        });
+        // Safety fallback: show after 5s even if load never fires
+        setTimeout(function() {
+          if (!img.classList.contains('loaded')) {
+            img.classList.add('loaded');
+          }
+        }, 5000);
       });
     } else {
       // Fallback for older browsers - just show images
