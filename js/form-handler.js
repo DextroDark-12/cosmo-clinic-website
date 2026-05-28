@@ -162,11 +162,13 @@
         fetch(WEBHOOK_URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                // text/plain avoids CORS preflight (OPTIONS) which mobile browsers handle strictly
+                'Content-Type': 'text/plain',
+                'Accept': 'application/json, text/plain, */*'
             },
             body: JSON.stringify(payload),
-            // Prevent browser from caching
+            mode: 'cors',
+            credentials: 'omit',
             cache: 'no-cache'
         })
         .then(function(response) {
@@ -191,7 +193,11 @@
             form.reset();
         })
         .catch(function(error) {
-            console.error('[FormHandler] Fetch error:', error);
+            console.error('[FormHandler] Fetch error:', error.name, error.message);
+            // Log more detail for mobile debugging
+            if (error instanceof TypeError) {
+                console.error('[FormHandler] Network/CORS error — likely the server rejected the preflight request');
+            }
             showInlineStatus(form, 'Something went wrong. Please try again or call us.', 'error');
         })
         .finally(function() {
