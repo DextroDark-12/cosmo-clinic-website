@@ -39,10 +39,11 @@
      * Called immediately if DOM is ready, otherwise waits for DOMContentLoaded.
      */
     function init() {
-        const forms = findForms();
+        dbg('INIT called', { readyState: document.readyState });
+        var forms = findForms();
 
         if (forms.length === 0) {
-            console.warn('[FormHandler] No forms found matching selectors:', FORM_SELECTORS.join(', '));
+            dbg('INIT WARNING: no forms found', FORM_SELECTORS);
             return;
         }
 
@@ -50,7 +51,7 @@
             initializeForm(form, index + 1);
         });
 
-        console.log('[FormHandler] Initialized', forms.length, 'form(s)');
+        dbg('INIT complete', { formCount: forms.length });
     }
 
     /**
@@ -80,22 +81,55 @@
      * @param {number} formNumber
      */
     function initializeForm(form, formNumber) {
-        // Neutralize native form submission vectors
-        form.removeAttribute('action');
-        form.removeAttribute('method');
-        form.removeAttribute('target');
+        try {
+            // Neutralize native form submission vectors
+            form.removeAttribute('action');
+            form.removeAttribute('method');
+            form.removeAttribute('target');
 
-        // Clear any inline onsubmit handler
-        form.onsubmit = null;
+            // Clear any inline onsubmit handler
+            form.onsubmit = null;
 
-        // Attach CAPTURE-phase listener with immediate propagation stop
-        // The 'true' third argument sets capture phase (runs before bubble)
-        form.addEventListener('submit', handleSubmit, true);
+            // Attach CAPTURE-phase listener with immediate propagation stop
+            form.addEventListener('submit', handleSubmit, true);
 
-        // Mark as initialized to prevent double-initialization
-        form.setAttribute('data-form-handler-initialized', 'true');
+            // Mark as initialized
+            form.setAttribute('data-form-handler-initialized', 'true');
 
-        console.log('[FormHandler] Form #' + formNumber + ' initialized:', form.id || form.className || 'unnamed');
+            dbg('Form #' + formNumber + ' initialized', { id: form.id, className: form.className, hasAction: !!form.getAttribute('action') });
+        } catch(err) {
+            dbg('EXCEPTION in initializeForm', { formNumber: formNumber, name: err.name, message: err.message });
+        }
+    }
+
+    // ========================================================================
+    // VISIBLE DEBUG PANEL (TEMPORARY — REMOVE AFTER DIAGNOSIS)
+    // ========================================================================
+
+    var debugPanel = null;
+    var debugLog = [];
+
+    function ensureDebugPanel() {
+        if (debugPanel) return;
+        debugPanel = document.createElement('div');
+        debugPanel.id = 'form-debug-panel';
+        debugPanel.style.cssText = 'position:fixed;bottom:0;left:0;right:0;max-height:40vh;overflow-y:auto;background:#111;color:#0f0;font:11px/1.4 monospace;z-index:999999;padding:8px;border-top:2px solid #c9a96e;white-space:pre-wrap;word-break:break-all;';
+        document.body.appendChild(debugPanel);
+    }
+
+    function dbg(label, data) {
+        var entry = '[' + new Date().toISOString().substr(11, 12) + '] ' + label;
+        if (data !== undefined) {
+            try { entry += ': ' + (typeof data === 'string' ? data : JSON.stringify(data)); }
+            catch(e) { entry += ': [circular/unserializable]'; }
+        }
+        console.log('[DBG] ' + entry);
+        debugLog.push(entry);
+        try {
+            ensureDebugPanel();
+            debugPanel.textContent = debugLog.join('\n');
+            debugPanel.scrollTop = debugPanel.scrollHeight;
+        } catch(e) { /* panel failure must not break submission */ }
     }
 
     // ========================================================================
@@ -104,99 +138,201 @@
 
     /**
      * Handle form submission.
-     * This is the single execution path for ALL webhook submissions.
-     * NO fallback branches that skip fetch.
+     * Fully instrumented for mobile debugging.
      * @param {Event} e
      */
     function handleSubmit(e) {
-        // === CRITICAL: Stop ALL other handlers ===
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();  // Blocks other listeners on same element
+        dbg('SUBMIT EVENT FIRED', { type: e.type, target: e.target.id || e.target.className, eventPhase: e.eventPhase, cancelable: e.cancelable });
 
-        const form = e.target;
+        try {
+            // === CRITICAL: Stop ALL other handlers ===
+            e.preventDefault();
+            dbg('preventDefault done', { defaultPrevented: e.defaultPrevented });
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            dbg('stopPropagation + stopImmediatePropagation done');
+        } catch(err) {
+            dbg('EXCEPTION in event stop', { name: err.name, message: err.message });
+        }
 
-        // Defensive: re-strip any dynamically added attributes
-        form.removeAttribute('action');
-        form.removeAttribute('method');
-        form.removeAttribute('target');
+        var form;
+        try {
+            form = e.target;
+            dbg('form reference', { id: form.id, className: form.className, tagName: form.tagName });
+        } catch(err) {
+            dbg('EXCEPTION getting form', { name: err.name, message: err.message });
+            return;
+        }
 
-        // Block the native form.submit() method
-        form.submit = function() {
-            console.warn('[FormHandler] Blocked native form.submit() call');
-            return false;
-        };
+        try {
+            // Defensive: re-strip any dynamically added attributes
+            form.removeAttribute('action');
+            form.removeAttribute('method');
+            form.removeAttribute('target');
+            dbg('stripped action/method/target', { action: form.getAttribute('action'), method: form.getAttribute('method') });
 
-        // Get submit button for disable/feedback
-        const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+            // Block the native form.submit() method
+            form.submit = function() {
+                dbg('BLOCKED native form.submit()');
+                return false;
+            };
+        } catch(err) {
+            dbg('EXCEPTION in form hardening', { name: err.name, message: err.message });
+        }
 
-        // Disable button to prevent double-submit
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.dataset.originalText = submitBtn.textContent || submitBtn.value;
-            submitBtn.textContent = 'Sending…';
+        // Get submit button
+        var submitBtn;
+        try {
+            submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+            dbg('submitBtn found', { found: !!submitBtn, disabled: submitBtn ? submitBtn.disabled : 'N/A' });
+        } catch(err) {
+            dbg('EXCEPTION finding submitBtn', { name: err.name, message: err.message });
+        }
+
+        try {
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.dataset.originalText = submitBtn.textContent || submitBtn.value;
+                submitBtn.textContent = 'Sending\u2026';
+                dbg('submitBtn disabled');
+            }
+        } catch(err) {
+            dbg('EXCEPTION disabling submitBtn', { name: err.name, message: err.message });
         }
 
         // Collect form data
-        const formData = new FormData(form);
-        const payload = {
-            name: (formData.get('name') || '').toString().trim(),
-            email: (formData.get('email') || '').toString().trim(),
-            phone: (formData.get('phone') || '').toString().trim(),
-            treatment: (formData.get('treatment') || '').toString().trim(),
-            date: (formData.get('date') || '').toString().trim(),
-            message: (formData.get('message') || '').toString().trim(),
-            page: window.location.href,
-            timestamp: new Date().toISOString()
-        };
+        var formData, payload;
+        try {
+            formData = new FormData(form);
+            dbg('FormData created', { keys: Array.from(formData.keys()).join(',') });
 
-        // === DETERMINISTIC LOGGING ===
-        console.log('[FormHandler] Submitting payload:', payload);
-        console.log('[FormHandler] Webhook URL:', WEBHOOK_URL);
+            // Check each field individually for mobile-specific issues
+            var rawName = formData.get('name');
+            var rawEmail = formData.get('email');
+            var rawPhone = formData.get('phone');
+            var rawTreatment = formData.get('treatment');
+            var rawDate = formData.get('date');
+            var rawMessage = formData.get('message');
+
+            dbg('raw fields', {
+                name: rawName,
+                email: rawEmail,
+                phone: rawPhone,
+                treatment: rawTreatment,
+                date: rawDate,
+                date_type: rawDate !== null ? typeof rawDate : 'null',
+                message: rawMessage
+            });
+
+            payload = {
+                name: (rawName || '').toString().trim(),
+                email: (rawEmail || '').toString().trim(),
+                phone: (rawPhone || '').toString().trim(),
+                treatment: (rawTreatment || '').toString().trim(),
+                date: (rawDate || '').toString().trim(),
+                message: (rawMessage || '').toString().trim(),
+                page: window.location.href,
+                timestamp: new Date().toISOString()
+            };
+
+            dbg('PAYLOAD BUILT', payload);
+        } catch(err) {
+            dbg('EXCEPTION building payload', { name: err.name, message: err.message, stack: err.stack });
+            showInlineStatus(form, 'Error building form data. Please try again.', 'error');
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText || 'Submit'; }
+            return;
+        }
+
+        // Verify fetch is available
+        try {
+            dbg('fetch available', { hasFetch: typeof fetch === 'function' });
+            if (typeof fetch !== 'function') {
+                dbg('CRITICAL: fetch() not available on this browser');
+                showInlineStatus(form, 'Your browser does not support this form. Please call us.', 'error');
+                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText || 'Submit'; }
+                return;
+            }
+        } catch(err) {
+            dbg('EXCEPTION checking fetch', { name: err.name, message: err.message });
+        }
+
+        // Verify WEBHOOK_URL
+        dbg('webhook URL', { url: WEBHOOK_URL, type: typeof WEBHOOK_URL });
+
+        // Log UA for mobile debugging
+        dbg('userAgent', navigator.userAgent);
 
         // Show inline status
-        showInlineStatus(form, 'Sending your request…', 'info');
+        try {
+            showInlineStatus(form, 'Sending your request\u2026', 'info');
+            dbg('showInlineStatus(info) done');
+        } catch(err) {
+            dbg('EXCEPTION in showInlineStatus info', { name: err.name, message: err.message });
+        }
 
-        // === GUARANTEED FETCH EXECUTION ===
-        // Root cause confirmed via curl testing:
-        //   OPTIONS preflight: ✅ returns Access-Control-Allow-Origin
-        //   POST response: ❌ does NOT return Access-Control-Allow-Origin
-        //   Desktop Chrome: lenient, works despite missing CORS header on response
-        //   Mobile Safari/Chrome: strict, blocks response reading -> promise rejects
-        //
-        // Fix: Use mode: 'no-cors' which:
-        //   1. Skips CORS preflight entirely (no OPTIONS request)
-        //   2. Does NOT check CORS headers on the response
-        //   3. Request always reaches the server (we confirmed 200 via curl)
-        //   4. No duplicate submissions (unlike sendBeacon fallback)
-        //   5. Promise resolves on success, rejects only on true network failure
-        fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'text/plain'
-            },
-            body: JSON.stringify(payload),
-            mode: 'no-cors'
-        })
-        .then(function() {
-            // Request was sent. Server always returns 200 + 'Workflow started'.
-            // Opaque response (status 0) is expected in no-cors mode.
-            console.log('[FormHandler] Data delivered via no-cors fetch');
-            showInlineStatus(form, 'Thank you — we\'ll be in touch within 24 hours.', 'success');
-            form.reset();
-        })
-        .catch(function(error) {
-            // True network failure (no internet, DNS failure, server unreachable)
-            console.error('[FormHandler] Network error (' + error.name + '):', error.message);
-            showInlineStatus(form, 'Something went wrong. Please try again or call us.', 'error');
-        })
-        .finally(function() {
-            // Re-enable submit button
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = submitBtn.dataset.originalText || 'Submit';
-            }
-        });
+        // === FETCH EXECUTION ===
+        var fetchBody;
+        try {
+            fetchBody = JSON.stringify(payload);
+            dbg('JSON.stringify succeeded', { length: fetchBody.length, first100: fetchBody.substring(0, 100) });
+        } catch(err) {
+            dbg('EXCEPTION in JSON.stringify', { name: err.name, message: err.message });
+            showInlineStatus(form, 'Error preparing data. Please try again.', 'error');
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText || 'Submit'; }
+            return;
+        }
+
+        dbg('FETCH STARTING', { url: WEBHOOK_URL, method: 'POST', mode: 'no-cors', contentType: 'text/plain', bodyLength: fetchBody.length });
+
+        try {
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain'
+                },
+                body: fetchBody,
+                mode: 'no-cors'
+            })
+            .then(function(response) {
+                dbg('FETCH THEN fired', { type: typeof response, ok: response ? response.ok : 'N/A', status: response ? response.status : 'N/A' });
+                try {
+                    showInlineStatus(form, 'Thank you \u2014 we\u2019ll be in touch within 24 hours.', 'success');
+                    dbg('showInlineStatus(success) done');
+                } catch(err) {
+                    dbg('EXCEPTION in success showInlineStatus', { name: err.name, message: err.message });
+                }
+                try {
+                    form.reset();
+                    dbg('form.reset() done');
+                } catch(err) {
+                    dbg('EXCEPTION in form.reset()', { name: err.name, message: err.message });
+                }
+            })
+            .catch(function(error) {
+                dbg('FETCH CATCH fired', { name: error.name, message: error.message, stack: error.stack ? error.stack.substring(0, 200) : 'N/A' });
+                try {
+                    showInlineStatus(form, 'Something went wrong. Please try again or call us.', 'error');
+                } catch(err2) {
+                    dbg('EXCEPTION in error showInlineStatus', { name: err2.name, message: err2.message });
+                }
+            })
+            .finally(function() {
+                dbg('FETCH FINALLY fired');
+                try {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = submitBtn.dataset.originalText || 'Submit';
+                        dbg('submitBtn re-enabled');
+                    }
+                } catch(err) {
+                    dbg('EXCEPTION in finally re-enable', { name: err.name, message: err.message });
+                }
+            });
+        } catch(err) {
+            dbg('EXCEPTION calling fetch() itself', { name: err.name, message: err.message, stack: err.stack });
+            showInlineStatus(form, 'Network error. Please try again or call us.', 'error');
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.originalText || 'Submit'; }
+        }
 
         // Return false as extra safety
         return false;
@@ -257,20 +393,11 @@
      * Global error handler to catch any uncaught exceptions.
      */
     window.addEventListener('error', function(event) {
-        console.error('[Global Error]', {
-            message: event.message,
-            filename: event.filename,
-            lineno: event.lineno,
-            colno: event.colno,
-            error: event.error ? event.error.stack : null
-        });
+        dbg('GLOBAL ERROR', { message: event.message, filename: event.filename, lineno: event.lineno, colno: event.colno });
     });
 
-    /**
-     * Catch unhandled promise rejections (e.g., fetch failures).
-     */
     window.addEventListener('unhandledrejection', function(event) {
-        console.error('[Unhandled Promise Rejection]', event.reason);
+        dbg('UNHANDLED PROMISE REJECTION', { reason: event.reason ? (event.reason.message || String(event.reason)) : 'unknown' });
     });
 
     // ========================================================================
@@ -307,9 +434,13 @@
     // BOOTSTRAP
     // ========================================================================
 
+    dbg('IIFE executing', { readyState: document.readyState, URL: WEBHOOK_URL });
+
     if (document.readyState === 'loading') {
+        dbg('DOM still loading, waiting for DOMContentLoaded');
         document.addEventListener('DOMContentLoaded', init);
     } else {
+        dbg('DOM already ready, calling init() immediately');
         init();
     }
 
