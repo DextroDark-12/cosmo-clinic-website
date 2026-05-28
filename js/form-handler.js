@@ -10,7 +10,7 @@
 
     /* ── Configuration ─────────────────────────────────────────── */
 
-    const WEBHOOK_URL = 'https://n8n-railway-production-7c29.up.railway.app/webhook/clinic-lead';
+    const WEBHOOK_URL = '/api/clinic-lead';
 
     const FORM_SELECTORS = [
         '#bookingForm',
